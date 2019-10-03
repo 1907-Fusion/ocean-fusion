@@ -41,4 +41,21 @@ form div {
 .nav-button:hover {
   background-color: #fbcd8e;
   transform: scale(1.2);
+  
+::placeholder {
+  padding: 7px;
+  color: gray;
+}
+
+.loginBtn {
+  color: #32a842;
+}
+
+.loginBtn:focus {
+  color: grey;
+}
+
+.googleBtn {
+  display: block;
+  padding: 15px;
 }
