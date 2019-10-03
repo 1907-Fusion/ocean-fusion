@@ -19,3 +19,26 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.nav {
+  align-items: center;
+  background-color: #115898;
+  justify-content: space-between;
+}
+
+.nav a {
+  color: #a8c2d9;
+}
+
+.nav-button {
+  color: #fff;
+  background-color: #a8c2d9;
+  border: 0px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.nav-button:hover {
+  background-color: #fbcd8e;
+  transform: scale(1.2);
+}
