@@ -2,71 +2,163 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import {Link} from 'react-router-dom'
 import {Card, Button, Nav} from 'react-bootstrap'
 
 /**
  * COMPONENT
  */
-const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+class AuthForm extends React.Component {
+  constructor() {
+    super()
+    this.state = {show: false}
+  }
+  showTrue = () => {
+    this.setState({show: true})
+  }
+  showFalse = () => {
+    this.setState({show: false})
+  }
+  render() {
+    const {handleSubmit, error} = this.props
+    const {show} = this.state
 
-  return (
-    <div>
-      <Card>
-        <Card.Header>
-          <Nav variant="tabs" defaultActiveKey="#first">
-            <Nav.Item>
-              <Nav.Link href="#first">Active</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="#link">Link</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="#disabled" disabled>
-                Disabled
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Card.Header>
-        <Card.Body>
-          <Card.Title>Special title treatment</Card.Title>
+    const register = () => {
+      return (
+        <Card.Body style={{textAlign: 'center'}}>
           <Card.Text>
-            With supporting text below as a natural lead-in to additional
-            content.
+            <form onSubmit={handleSubmit}>
+              <div>
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="Name"
+                  style={{
+                    width: '600px',
+                    height: '43px',
+                    borderRadius: '4px'
+                  }}
+                />
+              </div>
+              <br />
+              <div>
+                <input
+                  name="email"
+                  type="text"
+                  placeholder="User Email"
+                  style={{
+                    width: '600px',
+                    height: '43px',
+                    borderRadius: '4px'
+                  }}
+                />
+              </div>
+              <br />
+              <div>
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  style={{
+                    width: '600px',
+                    height: '43px',
+                    borderRadius: '4px'
+                  }}
+                />
+              </div>
+              {error && error.response && <div> {error.response.data} </div>}
+            </form>
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button style={{backgroundColor: '#32a842', border: 'white'}}>
+            Register
+          </Button>
         </Card.Body>
-      </Card>
-      <div>
-        <form onSubmit={handleSubmit} name={name}>
+      )
+    }
+
+    const login = () => {
+      return (
+        <Card.Body style={{textAlign: 'center'}}>
+          <Card.Text>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <input
+                  name="email"
+                  type="text"
+                  placeholder="User Email"
+                  style={{
+                    width: '600px',
+                    height: '43px',
+                    borderRadius: '4px'
+                  }}
+                />
+              </div>
+              <br />
+              <div>
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  style={{
+                    width: '600px',
+                    height: '43px',
+                    borderRadius: '4px'
+                  }}
+                />
+              </div>
+              {error && error.response && <div> {error.response.data} </div>}
+            </form>
+          </Card.Text>
+          <Button variant="primary">Log In</Button>
           <div>
-            <label htmlFor="email">
-              <small>Email</small>
-            </label>
-            <input name="email" type="text" />
+            <a className="googleBtn" href="/auth/google">
+              <img
+                width="20px"
+                alt="Google &quot;G&quot; Logo"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+              />
+              Login with Google
+            </a>
           </div>
-          <div>
-            <label htmlFor="password">
-              <small>Password</small>
-            </label>
-            <input name="password" type="password" />
-          </div>
-          <div>
-            <button type="submit">{displayName}</button>
-          </div>
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login">Login</Link>
-            <br />
-            <Link to="/signup">Sign Up</Link>
-          </div>
-          {error && error.response && <div> {error.response.data} </div>}
-        </form>
-        <a href="/auth/google">{displayName} with Google</a>
+        </Card.Body>
+      )
+    }
+    return (
+      <div
+        style={{display: 'flex', justifyContent: 'center', marginTop: '70px'}}
+      >
+        <Card style={{width: '79%'}}>
+          <Card.Header>
+            <Nav
+              variant="tabs"
+              defaultActiveKey="#first"
+              className="justify-content-center"
+            >
+              <Nav.Item>
+                <Nav.Link
+                  className="loginBtn"
+                  href="#first"
+                  onClick={this.showFalse}
+                  style={{fontSize: '20px'}}
+                >
+                  Login
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link
+                  href="#link"
+                  onClick={this.showTrue}
+                  style={{fontSize: '20px'}}
+                >
+                  Register
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Card.Header>
+          {show ? register() : login()}
+        </Card>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 /**
@@ -78,16 +170,12 @@ const AuthForm = props => {
  */
 const mapLogin = state => {
   return {
-    name: 'login',
-    displayName: 'Login',
     error: state.user.error
   }
 }
 
 const mapSignup = state => {
   return {
-    name: 'signup',
-    displayName: 'Sign Up',
     error: state.user.error
   }
 }
@@ -111,8 +199,6 @@ export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
  * PROP TYPES
  */
 AuthForm.propTypes = {
-  name: PropTypes.string.isRequired,
-  displayName: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   error: PropTypes.object
 }
