@@ -22,12 +22,13 @@ form div {
 
 .navbar {
   align-items: center;
-  background-color: #115898;
+  background-color: #007ea7;
   justify-content: space-between;
 }
 
 .navbar a {
-  color: #a8c2d9;
+  color: #ffffff;
+  text-shadow: 3px 5px 2px #474747;
 }
 
 .nav-button {
@@ -59,4 +60,49 @@ form div {
 .googleBtn {
   display: block;
   padding: 15px;
+}
+
+#earth {
+  width: 400px;
+  height: 400px;
+  animation: spinning 60s linear infinite;
+}
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.main {
+  display: flex;
+  background-color: #99ffff;
+  padding: 50px;
+  min-height: 800px;
+}
+
+.summary {
+  margin-left: 5%;
+  align-content: space-around;
+  width: 50%;
+  text-align: center;
+  color: transparent;
+  background: #666666;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.29);
+  /*
+   color: #FFFFFF;
+   text-shadow: 1px 3px 1px #474747; */
+}
+
+.summary p {
+  font-size: 22px;
+}
+
+li {
+  list-style: none;
 }
