@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import {Link} from 'react-router-dom'
+import {Card, Button} from 'react-bootstrap'
 
 /**
  * COMPONENT
@@ -11,25 +13,44 @@ const AuthForm = props => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      <a href="/auth/google">{displayName} with Google</a>
+      <Card>
+        <Card.Header>Login Register</Card.Header>
+        <Card.Body>
+          <Card.Title>Special title treatment</Card.Title>
+          <Card.Text>
+            With supporting text below as a natural lead-in to additional
+            content.
+          </Card.Text>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
+      <div>
+        <form onSubmit={handleSubmit} name={name}>
+          <div>
+            <label htmlFor="email">
+              <small>Email</small>
+            </label>
+            <input name="email" type="text" />
+          </div>
+          <div>
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" />
+          </div>
+          <div>
+            <button type="submit">{displayName}</button>
+          </div>
+          <div>
+            {/* The navbar will show these links before you log in */}
+            <Link to="/login">Login</Link>
+            <br />
+            <Link to="/signup">Sign Up</Link>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+        </form>
+        <a href="/auth/google">{displayName} with Google</a>
+      </div>
     </div>
   )
 }
