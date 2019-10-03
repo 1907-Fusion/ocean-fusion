@@ -43,13 +43,18 @@ async function seed() {
     Question.create({
       content:
         'Which of these common U.S. species is doing damage as an invasive species in the Black Sea?',
-      choices: ['American eel', 'Bull trout', 'Comb jellyfish', 'Estuaries'],
-      answer: 'Estuaries'
+      choices: [
+        'American eel',
+        'Bull trout',
+        'Comb jellyfish',
+        'Sockeye salmon'
+      ],
+      answer: 'Comb jellyfish'
     }),
     Question.create({
       content:
         'What area of the ocean is suffering the most from habitat destruction?',
-      choices: ['Coasts', 'Ocean Floor', 'Deep Sea', 'Sockeye salmon'],
+      choices: ['Coasts', 'Ocean Floor', 'Deep Sea', 'Estuaries'],
       answer: 'Coasts'
     }),
     Question.create({
@@ -95,11 +100,6 @@ async function seed() {
       answer: '75%'
     }),
     Question.create({
-      content: "How much of the earth's surface is covered by water?",
-      choices: ['87%', '75%', '47%', '60%'],
-      answer: '75%'
-    }),
-    Question.create({
       content:
         'Pasca, a Native American word for bread, gave this Gulf coast city its name.',
       choices: ['Pascagoula', 'Des Moines', 'Pudget Sound', 'Mount Rainier'],
@@ -125,7 +125,7 @@ async function seed() {
     Question.create({
       content:
         'How many marine animals are killed annually by plastic in the ocean?',
-      choices: ['100,000', '200,000', '1 million', '25,000'],
+      choices: ['100,000', '200,000', '10000', '25,000'],
       answer: '100,000'
     }),
     Question.create({
@@ -244,7 +244,7 @@ async function seed() {
     }),
     Question.create({
       content:
-        'How many gallons of motor gasoline does the average American consume in one year?',
+        'How much does the average American consume in paper, wood, and other products made from trees each year?',
       choices: ['1 tree', ' 5 trees', '7 trees', '15 trees'],
       answer: '7 trees'
     }),
