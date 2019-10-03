@@ -16,6 +16,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             </Link>
           </div>
           <div id="nav-right">
+            <button className="nav-button" type="button">
+              Score:
+            </button>
             <a href="#" onClick={handleClick}>
               <button className="nav-button" type="button">
                 New Game
@@ -46,7 +49,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         </div>
       )}
     </nav>
-    <hr />
   </div>
 )
 
