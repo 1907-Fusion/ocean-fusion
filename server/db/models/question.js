@@ -1,21 +1,20 @@
-
 const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Question = db.define('question', {
-  content:{
-    type:Sequelize.TEXT,
-    allowNull:false
+  content: {
+    type: Sequelize.TEXT,
+    allowNull: false
   },
-  choices:{
-    type: Sequelize.ENUM('A', 'B', 'C','D')
+  choices: {
+    type: Sequelize.ARRAY(Sequelize.TEXT)
   },
-  answer:{
-    type:Sequelize.STRING
+  answer: {
+    type: Sequelize.STRING
   },
-  pointValue:{
-    type:Sequelize.INTEGER,
-    defaultValue:200
+  pointValue: {
+    type: Sequelize.INTEGER,
+    defaultValue: 200
   }
 })
 
