@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 import {Link} from 'react-router-dom'
-import {Card, Button} from 'react-bootstrap'
+import {Card, Button, Nav} from 'react-bootstrap'
 
 /**
  * COMPONENT
@@ -14,7 +14,21 @@ const AuthForm = props => {
   return (
     <div>
       <Card>
-        <Card.Header>Login Register</Card.Header>
+        <Card.Header>
+          <Nav variant="tabs" defaultActiveKey="#first">
+            <Nav.Item>
+              <Nav.Link href="#first">Active</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#link">Link</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="#disabled" disabled>
+                Disabled
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Card.Header>
         <Card.Body>
           <Card.Title>Special title treatment</Card.Title>
           <Card.Text>
