@@ -186,9 +186,9 @@ async function seed() {
         'What percentage of monetary purchasing goes to packaging materials?',
       choices: [
         '$1 for every $10 spent',
-        ' $1 for every $50 spent',
-        ' $1 for every $100 spent',
-        ' $1 for every $1,000 spent'
+        '$1 for every $50 spent',
+        '$1 for every $100 spent',
+        '$1 for every $1,000 spent'
       ],
       answer: '$1 for every $10 spent'
     }),
@@ -197,7 +197,7 @@ async function seed() {
       choices: [
         'Enough to power a microwave for 30 minutes',
         'Enough to power the average American home for 4 days',
-        ' Enough to power a computer for 15 minutes',
+        'Enough to power a computer for 15 minutes',
         'Enough to power a TV for 3 hours'
       ],
       answer: 'Enough to power a TV for 3 hours'
