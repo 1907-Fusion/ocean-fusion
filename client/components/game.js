@@ -1,42 +1,25 @@
+// import P5Wrapper from 'react-p5-wrapper';
+// import sketch from './sketch';
 import React from 'react'
-import ReactDOM from 'react-dom'
-
-let poseNet
-let video
-let leftWX = 0
-let leftWY = 0
-let rightWX = 0
-let rightWY = 0
-
-const videoWidth = 900
-const videoHeight = 700
+import * as p5 from 'p5'
+import 'p5/lib/addons/p5.dom'
 
 class Game extends React.Component {
-  setUp = () => {
-    p5.createCanvas(640, 480)
-    video = createCapture(VIDEO)
-    poseNet = ml5.poseNet(video, modelReady)
-    poseNet.on('pose', gotPoses)
+  constructor() {
+    super()
+    this.video = React.createRef()
   }
-
-  gotPoses = poses => {
-    if (poses.length > 0) {
-      let LX = poses[0].pose.keypoints[9].position.x
-      let LY = poses[0].pose.keypoints[9].position.y
-      let RX = poses[0].pose.keypoints[10].position.x
-      let RY = poses[0].pose.keypoints[10].position.y
-
-      leftWX = lerp(leftWX, LX, 0.5)
-      leftWY = lerp(leftWY, LY, 0.5)
-      rightWX = lerp(rightWX, RX, 0.5)
-      rightWY = lerp(rightWY, RY, 0.5)
-    }
+  componentDidMount() {
+    const sketch = new p5()
+    sketch.createCanvas(640, 480)
+    const video = sketch.createCapture(p5.VIDEO)
+    video.size(sketch.width, sketch.height)
   }
 
   render() {
     return (
-      <div id="camera" ref={this.setUp}>
-        <h2>ml5</h2>
+      <div>
+        <video ref={this.video} width="500" height="500" />
       </div>
     )
   }
