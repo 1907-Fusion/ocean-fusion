@@ -1,5 +1,3 @@
-// import P5Wrapper from 'react-p5-wrapper';
-// import sketch from './sketch';
 import React from 'react'
 import * as p5 from 'p5'
 import 'p5/lib/addons/p5.dom'
