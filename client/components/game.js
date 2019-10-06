@@ -25,8 +25,8 @@ class Game extends React.Component {
         audio: false,
         video: {
           facingMode: 'user',
-          width: 640,
-          height: 480
+          width: 600,
+          height: 800
         }
       })
       console.log('stream', stream)
@@ -42,7 +42,7 @@ class Game extends React.Component {
     const pose = await this.posenet.estimateSinglePose(this.video, {
       flipHorizontal: true
     })
-    console.log(pose)
+
     setTimeout(() => {
       this.detectPose()
     }, 100)
@@ -62,15 +62,15 @@ class Game extends React.Component {
         <video
           playsInline
           id="webcam"
-          width="640"
-          height="480"
+          width="600"
+          height="800"
           autoPlay={true}
           ref={this.getVideo}
         />
         <canvas
           className="canvas"
-          width="640"
-          height="480"
+          width="600"
+          height="800"
           ref={this.getCanvas}
         />
       </div>
