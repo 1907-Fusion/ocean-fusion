@@ -1,46 +1,78 @@
 import React from 'react'
-import * as p5 from 'p5'
+// import * as p5 from 'p5'
 import * as posenet from '@tensorflow-models/posenet'
 import 'p5/lib/addons/p5.dom'
 
 class Game extends React.Component {
-  constructor() {
-    super()
-    this.video = React.createRef()
-  }
-  componentDidMount() {
-    this.setup()
+  async componentDidMount() {
+    this.posenet = await posenet.load({
+      architecture: 'ResNet50',
+      outputStride: 32,
+      inputResolution: 193,
+      quantBytes: 1
+    })
+    await this.setupCamera()
   }
 
-  async setup() {
-    const sketch = new p5()
-    sketch.createCanvas(640, 580)
-    const video = sketch.createCapture(p5.VIDEO)
-    video.size(sketch.width, sketch.height)
-    const net = await posenet.load({
-      architecture: 'MobileNetV1',
-      outputStride: 16,
-      inputResolution: 513,
-      multiplier: 0.75
-    })
-    const pose = await net.estimateSinglePose(this.video.current, {
-      flipHorizontal: false
+  async setupCamera() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      throw new Error(
+        'Browser API navigator.mediaDevices.getUserMedia not available'
+      )
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+          facingMode: 'user',
+          width: 640,
+          height: 480
+        }
+      })
+      console.log('stream', stream)
+      this.video.srcObject = stream
+    } catch (err) {
+      console.error(err)
+    } finally {
+      this.detectPose()
+    }
+  }
+
+  async detectPose() {
+    const pose = await this.posenet.estimateSinglePose(this.video, {
+      flipHorizontal: true
     })
     console.log(pose)
+    setTimeout(() => {
+      this.detectPose()
+    }, 100)
   }
 
-  gotPoses = () => {
-    console.log('got poses')
+  getVideo = element => {
+    this.video = element
   }
 
-  modelReady = () => {
-    console.log('model is ready')
+  getCanvas = element => {
+    this.canvas = element
   }
 
   render() {
     return (
       <div>
-        <video ref={this.video} width="640" height="580" />
+        <video
+          playsInline
+          id="webcam"
+          width="640"
+          height="480"
+          autoPlay={true}
+          ref={this.getVideo}
+        />
+        <canvas
+          className="canvas"
+          width="640"
+          height="480"
+          ref={this.getCanvas}
+        />
       </div>
     )
   }
