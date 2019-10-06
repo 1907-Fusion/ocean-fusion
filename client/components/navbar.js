@@ -40,7 +40,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             </Link>
           </div>
           <div id="nav-right">
-            <Link to="/login">
+            <Link to="/game">
               <button className="nav-button" type="button">
                 Play Game
               </button>

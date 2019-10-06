@@ -39,15 +39,35 @@ class Game extends React.Component {
   }
 
   async detectPose() {
-    const pose = await this.posenet.estimateSinglePose(this.video, {
-      flipHorizontal: true
+    const poses = await this.posenet.estimateSinglePose(this.video, {
+      flipHorizontal: false
     })
 
+    this.gotPoses(poses)
     setTimeout(() => {
       this.detectPose()
     }, 100)
   }
 
+  gotPoses(poses) {
+    let rightWX = poses.keypoints[10].position.x
+    let rightWY = poses.keypoints[10].position.y
+    let leftWX = poses.keypoints[9].position.x
+    let leftWY = poses.keypoints[9].position.y
+
+    if (leftWX > 0 && leftWX < 300 && (leftWY > 0 && leftWY < 200)) {
+      console.log('A', leftWX, leftWY)
+    }
+    if (rightWX > 400 && rightWX < 600 && (rightWY > 0 && rightWY < 200)) {
+      console.log('B', rightWX, rightWY)
+    }
+    if (leftWX > 0 && leftWX < 300 && (leftWY > 600 && leftWY < 800)) {
+      console.log('C', leftWX, leftWY)
+    }
+    if (rightWX > 400 && rightWX < 600 && (rightWY > 600 && rightWY < 800)) {
+      console.log('D', rightWX, rightWY)
+    }
+  }
   getVideo = element => {
     this.video = element
   }

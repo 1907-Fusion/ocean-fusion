@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
-
+import {Link} from 'react-router-dom'
 class Main extends React.Component {
   constructor() {
     super()
@@ -39,7 +39,9 @@ class Main extends React.Component {
             </p>
           </li>
           <Button style={{backgroundColor: '#32a842', border: 'white'}}>
-            Play Game
+            <Link to="/game" style={{color: 'white'}}>
+              Play Game
+            </Link>
           </Button>
         </div>
       </div>
