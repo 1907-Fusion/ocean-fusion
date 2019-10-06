@@ -106,3 +106,7 @@ form div {
 li {
   list-style: none;
 }
+
+#webcam {
+  margin: 50px;
+}
