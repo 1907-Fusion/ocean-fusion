@@ -20,6 +20,10 @@ form div {
   display: inline-block;
 }
 
+#main {
+  display: flex;
+}
+
 .navbar {
   align-items: center;
   background-color: #007ea7;
@@ -117,6 +121,6 @@ li {
 }
 
 .container-fluid {
-  background-color: green;
+  background-color: #32a842;
   color: white;
 }
