@@ -24,12 +24,16 @@ const User = db.define('user', {
       return () => this.getDataValue('salt')
     }
   },
-  score:{
+  score: {
     type: Sequelize.INTEGER,
     defaultValue: 0
   },
   googleId: {
     type: Sequelize.STRING
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
