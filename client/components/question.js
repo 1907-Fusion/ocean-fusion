@@ -8,10 +8,32 @@ class Question extends React.Component {
   }
 
   render() {
-    console.log('THIS HAS REACHED THE QUESTION COMPONENT')
+    const {question} = this.props
     return (
       <div id="question-container">
-        <h2>WE ARE INSIDE THE QUESTION COMPONENT!</h2>
+        {question ? (
+          <div id="question-inner-container">
+            <div id="question-content">
+              <h2 id="question-title">{question.content}</h2>
+            </div>
+            {question.choices && question.choices.length > 0 ? (
+              <div id="question-choices">
+                <div id="choice-a">
+                  <h3>A. {question.choices[0]}</h3>
+                </div>
+                <div id="choice-b">
+                  <h3>B. {question.choices[1]}</h3>
+                </div>
+                <div id="choice-c">
+                  <h3>C. {question.choices[2]}</h3>
+                </div>
+                <div id="choice-d">
+                  <h3>D. {question.choices[3]}</h3>
+                </div>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     )
   }
