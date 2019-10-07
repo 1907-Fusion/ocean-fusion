@@ -81,7 +81,7 @@ class Camera extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="camera">
         {this.state.cameraSet ? '' : <Loading />}
         <video
           playsInline
@@ -91,12 +91,7 @@ class Camera extends React.Component {
           autoPlay={true}
           ref={this.getVideo}
         />
-        <canvas
-          className="canvas"
-          width="600"
-          height="800"
-          ref={this.getCanvas}
-        />
+        <canvas className="canvas" ref={this.getCanvas} />
       </div>
     )
   }

@@ -9,7 +9,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div className="main">
+      <div className="mainPage">
         <img
           style={{marginLeft: '5%'}}
           id="earth"

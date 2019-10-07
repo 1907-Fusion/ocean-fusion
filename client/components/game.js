@@ -6,13 +6,9 @@ import Question from './question'
 class Game extends React.Component {
   render() {
     return (
-      <div id="main">
-        <div id="main-left">
-          <Camera />
-        </div>
-        <div id="main-right">
-          <Question />
-        </div>
+      <div className="main">
+        <Camera />
+        <Question />
       </div>
     )
   }
