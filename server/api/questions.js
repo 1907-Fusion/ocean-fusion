@@ -10,6 +10,7 @@ function requireAdminStatus(req, res, callback) {
   }
 }
 function getRandomInt(min, max) {
+  //no same question (if statement)..
   return Math.floor(Math.random() * (max - min)) + min
 }
 
