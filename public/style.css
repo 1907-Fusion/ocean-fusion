@@ -1,3 +1,8 @@
+/* dark blue #007ea7
+light blue #99ffff
+ golden #ffad33
+ green #32a842 */
+
 body {
   font-family: sans-serif;
 }
@@ -144,4 +149,26 @@ li {
 
 .camera {
   margin-right: 10px;
+}
+
+#question-container h2 {
+  color: #145c9e;
+}
+
+#question-choices h3 {
+  color: #ffffff;
+  text-shadow: 3px 3px 2px #474747;
+}
+
+#choice-a {
+  background-color: #ffad33;
+}
+#choice-b {
+  background-color: #007ea7;
+}
+#choice-c {
+  background-color: #c49799;
+}
+#choice-d {
+  background-color: #145c9e;
 }
