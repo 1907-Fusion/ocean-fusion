@@ -2,11 +2,14 @@
 light blue #99ffff
  golden #ffad33
  green #32a842 */
-
+html {
+  min-height: 100%;
+  overflow-y: scroll;
+}
 body {
+  min-height: 100%;
   font-family: sans-serif;
 }
-
 a {
   text-decoration: none;
 }

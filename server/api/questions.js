@@ -3,6 +3,7 @@ const {Question} = require('../db/models')
 module.exports = router
 
 function getRandomInt(min, max) {
+  //no same question (if statement)..
   return Math.floor(Math.random() * (max - min)) + min
 }
 

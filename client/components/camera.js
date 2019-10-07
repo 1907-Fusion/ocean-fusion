@@ -8,6 +8,7 @@ class Camera extends React.Component {
     super()
     this.state = {cameraSet: false}
   }
+
   async componentDidMount() {
     this.posenet = await posenet.load({
       architecture: 'ResNet50',
@@ -25,18 +26,20 @@ class Camera extends React.Component {
       )
     }
     try {
+      console.log('here')
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {
           facingMode: 'user',
           width: 600,
-          height: 900
+          height: 800
         }
       })
       this.setState({cameraSet: true})
       this.video.srcObject = stream
     } catch (err) {
       console.error(err)
+    } finally {
       this.detectPose()
     }
   }
@@ -45,8 +48,8 @@ class Camera extends React.Component {
     const poses = await this.posenet.estimateSinglePose(this.video, {
       flipHorizontal: false
     })
-
     this.gotPoses(poses)
+
     setTimeout(() => {
       this.detectPose()
     }, 100)
@@ -57,7 +60,7 @@ class Camera extends React.Component {
     let rightWY = poses.keypoints[10].position.y
     let leftWX = poses.keypoints[9].position.x
     let leftWY = poses.keypoints[9].position.y
-
+    //div height and width
     if (leftWX > 0 && leftWX < 300 && (leftWY > 0 && leftWY < 200)) {
       console.log('A', leftWX, leftWY)
     }
@@ -87,12 +90,17 @@ class Camera extends React.Component {
         <video
           playsInline
           id="webcam"
-          width={cameraSet ? '600px' : '600px'}
-          height={cameraSet ? '900px' : '0'}
+          width="600"
+          height="800"
           autoPlay={true}
           ref={this.getVideo}
         />
-        <canvas className="canvas" ref={this.getCanvas} />
+        <canvas
+          className="canvas"
+          width="600"
+          height="800"
+          ref={this.getCanvas}
+        />
       </div>
     )
   }
