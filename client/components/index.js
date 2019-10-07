@@ -9,3 +9,4 @@ export {Login, Signup} from './auth-form'
 export {default as Main} from './main'
 
 export {default as Game} from './game'
+export {default as Question} from './question'

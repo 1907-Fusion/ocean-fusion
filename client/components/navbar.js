@@ -16,19 +16,19 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             </Link>
           </div>
           <div id="nav-right">
-            <button className="nav-button" type="button">
+            <button className="button" type="button">
               Score:
             </button>
-            <a href="#" onClick={handleClick}>
-              <button className="nav-button" type="button">
+            <Link to="/game" onClick={handleClick}>
+              <button className="button" type="button">
                 New Game
               </button>
-            </a>
-            <a href="#" onClick={handleClick}>
-              <button className="nav-button" type="button">
+            </Link>
+            <Link to="/logout" onClick={handleClick}>
+              <button className="button" type="button">
                 Logout
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       ) : (
@@ -41,7 +41,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           </div>
           <div id="nav-right">
             <Link to="/game">
-              <button className="nav-button" type="button">
+              <button className="button" type="button">
                 Play Game
               </button>
             </Link>
