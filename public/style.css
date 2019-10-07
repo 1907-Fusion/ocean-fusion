@@ -24,6 +24,10 @@ form div {
   display: inline-block;
 }
 
+#main {
+  display: flex;
+}
+
 .navbar {
   align-items: center;
   background-color: #115898;
@@ -138,4 +142,6 @@ li {
   text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5,
     -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5,
     -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+  background-color: #32a842;
+  color: white;
 }
