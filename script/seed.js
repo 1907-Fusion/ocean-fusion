@@ -15,7 +15,7 @@ async function seed() {
   const questions = await Promise.all([
     Question.create({
       content:
-        "Which ocean's fish stocks have taken the hardest hit from overfishing?",
+        "Which ocean's fish populations have taken the hardest hit from overfishing?",
       choices: ['Pacific', 'Atlantic', 'Indian', 'Arctic'],
       answer: 'Atlantic'
     }),
@@ -85,7 +85,7 @@ async function seed() {
     }),
     Question.create({
       content:
-        'In the summer of 2014, researchers recorded the highest global mean sea-surface temperatures in history.Where was the warming concentrated?',
+        'In the summer of 2014, researchers recorded the highest global mean sea-surface temperatures in history. Where was the warming concentrated?',
       choices: [
         'South Pacific',
         'North Pacific',
@@ -133,16 +133,6 @@ async function seed() {
         'About how many tons of plastic ends up in the ocean every year?',
       choices: ['13 million', '10 million', '5 million', '20 million'],
       answer: '13 million'
-    }),
-    Question.create({
-      content: 'What is the most ubiquitous type of litter on the planet?',
-      choices: [
-        'Plastic straws',
-        'Cigarette butts',
-        'Plastic cups',
-        'Beer cans'
-      ],
-      answer: 'Cigarette butts'
     }),
     Question.create({
       content: 'What is the most ubiquitous type of litter on the planet?',
@@ -253,11 +243,11 @@ async function seed() {
         'What type of supermarket bag is more ecofriendly, paper or plastic?',
       choices: [
         'Paper',
-        'None, carrying your own bag',
+        'None - carry your own bag',
         'Either is fine',
         'Plastic'
       ],
-      answer: 'None, carrying your own bag'
+      answer: 'None - carry your own bag'
     }),
     Question.create({
       content:
@@ -270,10 +260,134 @@ async function seed() {
         'Which of the following is an alternative material for making paper?',
       choices: ['Panda Excrement', 'Sheepskin', 'Hemp', 'All of the Above'],
       answer: 'All of the Above'
+    }),
+    Question.create({
+      content: 'What percentage of life on Earth resides in the ocean?',
+      choices: ['72%', '94%', '55%', '33%'],
+      answer: '94%'
+    }),
+    Question.create({
+      content:
+        'Where are the majority of cables that power the internet located?',
+      choices: [
+        'Along the the ocean floor',
+        'Underground throughout the Midwest',
+        'Near Area 51',
+        'On Roosevelt Island, New York'
+      ],
+      answer: 'Along the ocean floor',
+      explanation:
+        'The vast majority of the cables that power the Internet, allowing access to it across the entire globe, are underwater. Wires called “submarine communications cables” crisscross the ocean floors, put in place by boats built solely for that purpose. To ensure that the cables remain undisturbed, they have to be placed on relatively flat stretches of the ocean floor, away from ocean ecosystems or shipwrecks.'
+    }),
+    Question.create({
+      content:
+        'Which of the following would have the greatest impact on curbing climate change?',
+      choices: [
+        'Composting your waste',
+        'Cooking over clean stoves',
+        'Throwing away less food',
+        'Eating a plant-heavy diet'
+      ],
+      answer: 'Throwing away less food',
+      explanation:
+        'A third of all food that we raise or grow never makes it onto our plates, and that waste accounts for around 8% of global emissions.'
+    }),
+    Question.create({
+      content:
+        'Which of the following would have the greatest impact on curbing climate change?',
+      choices: [
+        'Driving an electric car',
+        'Shipping goods more efficiently',
+        'Taking less airplane trips',
+        'Investing in high-speed trains'
+      ],
+      answer: 'Driving an electric car',
+      explanation:
+        'If just 16% of the miles we drive were traveled in an electric-powered vehicle instead of a gas-powered one, it could keep 10 gigatons of carbon emissions out of the air.'
+    }),
+    Question.create({
+      content:
+        'Which of the following would have the greatest impact on curbing climate change?',
+      choices: [
+        'Designing more walkable cities',
+        'Using smart thermostats',
+        'Installing green roofs',
+        'Switching to LED lightbulbs'
+      ],
+      answer: 'Switching to LED lightbulbs',
+      explanation:
+        'LED lightbulbs cost more, but they use far less energy than incandescent and compact fluorescent bulbs, and they last longer.'
+    }),
+    Question.create({
+      content:
+        'Which of the following would have the greatest impact on curbing climate change?',
+      choices: [
+        'Cleaning up chemicals in our refrigerators and ACs',
+        'Building with greener cement',
+        'Using water more efficiently',
+        'Recycling More'
+      ],
+      answer: 'Cleaning up chemicals in our refrigerators and ACs',
+      explanation:
+        'Recycling, using less water and switching to cleaner cement would all help slow climate change. But the chemicals used in our refrigerators and A/C units trap thousands of times more heat than CO2, so containing them is essential to stopping global warming. If we prevent refrigerants from leaking and switch to using cleaner chemicals, it would be like keeping nearly 90 gigatons of C02 out of the atmosphere.'
+    }),
+    Question.create({
+      content:
+        'Which of the following would have the greatest impact on curbing climate change?',
+      choices: [
+        'Investing in nuclear power',
+        'Building more wind farms',
+        'Building more solar farms',
+        'Capturing energy from ocean waves'
+      ],
+      answer: 'Building more wind farms',
+      explanation:
+        'While solar has potential as a dominant electricity source in the future, Project Drawdown says investing in onshore wind farms offers the greatest reduction in CO2 emissions. Wind farms can also be built quickly, and the land they sit on can be used for farming or grazing simultaneously.'
+    }),
+    Question.create({
+      content: 'Where is the biggest waterfall in the world located?',
+      choices: [
+        'Angel Falls, Venezuela',
+        'Niagara Falls, New York',
+        'Underwater in the Denmark Strait',
+        'Gullfoss Waterfall, Iceland'
+      ],
+      answer: 'Underwater in the Denmark Strait',
+      explanation:
+        'Caverns and fissures are formed on the ocean floor form when water oozes through layers of salt - creating waterfalls! The Denmark Strait is a massive cascade of water that plummets 11,500 feet (more than three times the height of Angel Falls in Venezuela).'
+    }),
+    Question.create({
+      content: 'Where is the biggest waterfall in the world located?',
+      choices: [
+        'It is a biodegradable material so it eventually disintegrates',
+        'It never fully goes away, it just breaks into little pieces',
+        'There is no such thing as plastic waste, all plastic is recycled',
+        'It is dumped in the ocean for fish to eat'
+      ],
+      answer: 'It never fully goes away, it just breaks into little pieces'
+    }),
+    Question.create({
+      content: 'What percent of its plastic does the U.S. recycle?',
+      choices: ['9%', '35%', '50%', '75%'],
+      answer: '9%',
+      explanation:
+        'As of 2015, about 6.3 billion metric tons (Mt) of plastic has been produced in the U.S. and, of that, only 9% has been recycled, found a recent study published on Science Advances.'
+    }),
+    Question.create({
+      content: 'How much water does it take to produce one bottle of water?',
+      choices: [
+        'No water is used to produce plastic',
+        '1 bottle of water',
+        '3 bottles of water',
+        '6 bottles of water'
+      ],
+      answer: '3 bottles of water',
+      explanation:
+        'According to the Pacific Institute, producing a water bottle (including the plastic container and the filtered water inside) requires three times the amount of water in the actual bottle. In other words, every liter of bottled water sold represents 3 liters of water used. And this doesn’t say anything about the energy required to transport it.'
     })
   ])
 
-  console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${users.length} users and ${questions.length} questions!`)
   console.log(`seeded successfully`)
 }
 
