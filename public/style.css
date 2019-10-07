@@ -108,7 +108,6 @@ li {
 }
 
 #webcam {
-  margin: 50px;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
