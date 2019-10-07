@@ -29,7 +29,7 @@ form div {
   display: inline-block;
 }
 
-#main {
+.main {
   display: flex;
 }
 
@@ -96,11 +96,10 @@ form div {
   }
 }
 
-.main {
+.mainPage {
   display: flex;
   background-color: #99ffff;
   padding: 50px;
-  min-height: 800px;
 }
 
 .summary {
@@ -114,9 +113,6 @@ form div {
   -moz-background-clip: text;
   background-clip: text;
   text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.29);
-  /*
-   color: #FFFFFF;
-   text-shadow: 1px 3px 1px #474747; */
 }
 
 .summary p {
@@ -136,17 +132,23 @@ li {
   background-color: #007ea7;
 }
 
-.container-fluid {
+.loading {
   background-color: #99ffff;
   min-height: 900px;
+  text-align: center;
+  margin-right: 10px;
 }
 
-.container-fluid h1 {
+.loading h1 {
   padding: 64px;
   color: #ffffff;
   text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5,
     -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5,
     -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+}
+
+.camera {
+  margin-right: 10px;
 }
 
 #question-container h2 {

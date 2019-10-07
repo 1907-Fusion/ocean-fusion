@@ -24,6 +24,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/game" component={Game} />
         <Route path="/question" component={Question} />
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}

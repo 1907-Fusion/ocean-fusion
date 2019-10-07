@@ -3,7 +3,7 @@ import React from 'react'
 class Loading extends React.Component {
   render() {
     return (
-      <div className="container-fluid text-center">
+      <div className="loading">
         <h1 className="loadingEarth">Saving the Earth...</h1>
         <img
           id="earth"
