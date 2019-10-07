@@ -5,6 +5,10 @@ body {
 a {
   text-decoration: none;
 }
+a:hover {
+  text-decoration: none;
+  transform: scale(1.2);
+}
 
 label {
   display: block;
@@ -22,8 +26,9 @@ form div {
 
 .navbar {
   align-items: center;
-  background-color: #007ea7;
+  background-color: #115898;
   justify-content: space-between;
+  height: 80px;
 }
 
 .navbar a {
@@ -33,7 +38,9 @@ form div {
 
 .button {
   color: #fff;
-  background-color: #a8c2d9;
+  background-color: #ffad33;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5);
   border: 0px;
   border-radius: 5px;
   margin: 5px;
@@ -42,6 +49,10 @@ form div {
 .button:hover {
   background-color: #32a842;
   transform: scale(1.2);
+}
+
+.button a {
+  color: white;
 }
 
 ::placeholder {
@@ -117,6 +128,14 @@ li {
 }
 
 .container-fluid {
-  background-color: green;
-  color: white;
+  background-color: #99ffff;
+  min-height: 900px;
+}
+
+.container-fluid h1 {
+  padding: 64px;
+  color: #ffffff;
+  text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5,
+    -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5,
+    -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
 }
