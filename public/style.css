@@ -115,3 +115,8 @@ li {
 .question-container {
   background-color: #007ea7;
 }
+
+.container-fluid {
+  background-color: green;
+  color: white;
+}
