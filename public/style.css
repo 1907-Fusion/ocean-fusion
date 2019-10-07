@@ -31,7 +31,7 @@ form div {
   text-shadow: 3px 5px 2px #474747;
 }
 
-.nav-button {
+.button {
   color: #fff;
   background-color: #a8c2d9;
   border: 0px;
@@ -39,8 +39,8 @@ form div {
   margin: 5px;
 }
 
-.nav-button:hover {
-  background-color: #fbcd8e;
+.button:hover {
+  background-color: #32a842;
   transform: scale(1.2);
 }
 
@@ -111,4 +111,8 @@ li {
   margin: 50px;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+.question-container {
+  background-color: #007ea7;
 }

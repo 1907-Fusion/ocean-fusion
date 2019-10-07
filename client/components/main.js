@@ -38,10 +38,8 @@ class Main extends React.Component {
               time runs out
             </p>
           </li>
-          <Button style={{backgroundColor: '#32a842', border: 'white'}}>
-            <Link to="/game" style={{color: 'white'}}>
-              Play Game
-            </Link>
+          <Button className="button">
+            <Link to="/game">Play Game</Link>
           </Button>
         </div>
       </div>

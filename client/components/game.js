@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React from 'react'
 // import * as p5 from 'p5'
 import * as posenet from '@tensorflow-models/posenet'
