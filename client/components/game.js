@@ -1,6 +1,5 @@
 /* eslint-disable complexity */
 import React from 'react'
-import Loading from './loading'
 import Camera from './camera'
 import Question from './question'
 

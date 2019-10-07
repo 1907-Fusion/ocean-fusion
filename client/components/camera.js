@@ -2,6 +2,7 @@ import React from 'react'
 import * as posenet from '@tensorflow-models/posenet'
 import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
+
 class Camera extends React.Component {
   constructor() {
     super()
