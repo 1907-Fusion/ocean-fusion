@@ -10,7 +10,7 @@ class Camera extends React.Component {
   }
   async componentDidMount() {
     this.posenet = await posenet.load({
-      architecture: 'ResNet50', //posenet platform
+      architecture: 'ResNet50',
       outputStride: 32,
       inputResolution: 193,
       quantBytes: 1
