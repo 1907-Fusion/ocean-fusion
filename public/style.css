@@ -13,6 +13,7 @@ a {
 a:hover {
   text-decoration: none;
   transform: scale(1.2);
+  transition: all 0.5s ease;
 }
 
 label {
@@ -58,6 +59,7 @@ form div {
 .button:hover {
   background-color: #32a842;
   transform: scale(1.2);
+  transition: all 0.5s ease;
 }
 
 .button a {

@@ -30,7 +30,7 @@ class Camera extends React.Component {
         video: {
           facingMode: 'user',
           width: 600,
-          height: 800
+          height: 900
         }
       })
       this.setState({cameraSet: true})
@@ -80,14 +80,15 @@ class Camera extends React.Component {
   }
 
   render() {
+    const {cameraSet} = this.state
     return (
       <div className="camera">
-        {this.state.cameraSet ? '' : <Loading />}
+        {cameraSet ? '' : <Loading />}
         <video
           playsInline
           id="webcam"
-          width="600"
-          height="800"
+          width={cameraSet ? '600px' : '600px'}
+          height={cameraSet ? '900px' : '0'}
           autoPlay={true}
           ref={this.getVideo}
         />
