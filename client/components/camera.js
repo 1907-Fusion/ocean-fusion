@@ -94,6 +94,17 @@ class Camera extends React.Component {
           autoPlay={true}
           ref={this.getVideo}
         />
+        <div id="bubbles-container">
+          <div className="bubble x2" />
+          <div className="bubble x3" />
+          <div className="bubble x4" />
+          <div className="bubble x5" />
+          <div className="bubble x6" />
+          <div className="bubble x7" />
+          <div className="bubble x8" />
+          <div className="bubble x9" />
+          <div className="bubble x10" />
+        </div>
         <canvas className="canvas" ref={this.getCanvas} />
       </div>
     )
