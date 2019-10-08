@@ -11,7 +11,7 @@ class Main extends React.Component {
     return (
       <div className="mainPage">
         <img
-          style={{marginLeft: '5%'}}
+          style={{marginLeft: '5%', margin: '90px'}}
           id="earth"
           src="http://sannenijboer.nl/wp-content/uploads/2018/01/wereldbol.png"
         />
@@ -39,7 +39,7 @@ class Main extends React.Component {
             </p>
           </li>
           <Button className="button">
-            <Link to="/game">Play Game</Link>
+            <Link to="/login">Play Game</Link>
           </Button>
         </div>
       </div>

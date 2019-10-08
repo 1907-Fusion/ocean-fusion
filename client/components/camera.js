@@ -26,7 +26,6 @@ class Camera extends React.Component {
       )
     }
     try {
-      console.log('here')
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {
@@ -95,12 +94,7 @@ class Camera extends React.Component {
           autoPlay={true}
           ref={this.getVideo}
         />
-        <canvas
-          className="canvas"
-          width="600"
-          height="800"
-          ref={this.getCanvas}
-        />
+        <canvas className="canvas" ref={this.getCanvas} />
       </div>
     )
   }
