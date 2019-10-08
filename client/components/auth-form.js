@@ -19,9 +19,8 @@ class AuthForm extends React.Component {
     this.setState({show: false})
   }
   render() {
-    const {handleSubmit, error} = this.props
+    const {handleSubmit, error, name} = this.props
     const {show} = this.state
-
     const register = () => {
       return (
         <Card.Body style={{textAlign: 'center'}}>
@@ -66,11 +65,15 @@ class AuthForm extends React.Component {
                 />
               </div>
               {error && error.response && <div> {error.response.data} </div>}
+              <br />
+              <Button
+                type="submit"
+                style={{backgroundColor: '#32a842', border: 'white'}}
+              >
+                Register
+              </Button>
             </form>
           </Card.Text>
-          <Button style={{backgroundColor: '#32a842', border: 'white'}}>
-            Register
-          </Button>
         </Card.Body>
       )
     }
@@ -79,7 +82,7 @@ class AuthForm extends React.Component {
       return (
         <Card.Body style={{textAlign: 'center'}}>
           <Card.Text>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} name={name}>
               <div>
                 <input
                   name="email"
@@ -106,9 +109,12 @@ class AuthForm extends React.Component {
                 />
               </div>
               {error && error.response && <div> {error.response.data} </div>}
+              <br />
+              <Button variant="primary" type="submit">
+                Log In
+              </Button>
             </form>
           </Card.Text>
-          <Button variant="primary">Log In</Button>
           <div>
             <a className="googleBtn" href="/auth/google">
               <img
@@ -170,6 +176,7 @@ class AuthForm extends React.Component {
  */
 const mapLogin = state => {
   return {
+    name: 'login',
     error: state.user.error
   }
 }
@@ -184,10 +191,16 @@ const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      const formName = evt.target.name
-      const email = evt.target.email.value
-      const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      if (evt.target.name === 'login') {
+        const formName = evt.target.name
+        const email = evt.target.email.value
+        const password = evt.target.password.value
+        dispatch(auth(email, password, formName))
+      } else {
+        const email = evt.target.email.value
+        const password = evt.target.password.value
+        dispatch(auth(email, password, 'signup'))
+      }
     }
   }
 }
