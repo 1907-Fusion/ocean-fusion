@@ -60,7 +60,9 @@ form div {
   border-radius: 5px;
   margin: 5px;
 }
-
+button:focus {
+  outline: 0;
+}
 .button:hover {
   background-color: #32a842;
   transform: scale(1.2);
