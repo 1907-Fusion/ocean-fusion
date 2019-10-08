@@ -2,6 +2,7 @@
 light blue #99ffff
  golden #ffad33
  green #32a842 */
+
 html {
   min-height: 100%;
   overflow-y: scroll;
@@ -107,7 +108,7 @@ button:focus {
 
 .mainPage {
   display: flex;
-  background-color: #99ffff;
+  background-color: lightblue;
   height: 100vh;
 }
 
@@ -136,6 +137,8 @@ li {
 #webcam {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+  z-index: -1;
+  filter: sepia(100%) hue-rotate(170deg) saturate(500%) grayscale(50%);
 }
 
 .question-container {
@@ -143,7 +146,7 @@ li {
 }
 
 .loading {
-  background-color: #99ffff;
+  background-color: lightblue;
   min-height: 900px;
   text-align: center;
   margin-right: 10px;
@@ -152,9 +155,7 @@ li {
 .loading h1 {
   padding: 64px;
   color: #ffffff;
-  text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5,
-    -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5,
-    -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+  text-shadow: 3px 3px 3px #474747;
 }
 
 .camera {
@@ -174,10 +175,10 @@ li {
   background-color: #ffad33;
 }
 #choice-b {
-  background-color: #007ea7;
+  background-color: lightblue;
 }
 #choice-c {
-  background-color: #c49799;
+  background-color: #44882d;
 }
 #choice-d {
   background-color: #145c9e;
