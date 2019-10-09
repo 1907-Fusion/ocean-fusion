@@ -6,14 +6,16 @@ import Loading from './loading'
 import {connect} from 'react-redux'
 import {gotQuestion} from '../store'
 
+let percentage = 0
+
 class Camera extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       cameraSet: false,
-      answer: ''
+      answer: '',
+      waterFilter: {}
     }
-  }
 
   async componentDidMount() {
     this.props.getQuestion()
@@ -25,6 +27,29 @@ class Camera extends React.Component {
     })
 
     await this.setupCamera()
+    setTimeout(() => {
+      this.timer()
+    }, 10000)
+  }
+
+  timer() {
+    if (percentage < 101) {
+      setTimeout(() => {
+        percentage += 25
+        this.setState({
+          waterFilter: {
+            backgroundColor: 'rgb(0, 109, 170, 0.5)',
+            position: 'absolute',
+            width: '38%',
+            top: '10%',
+            height: `${percentage}%`
+          }
+        })
+        this.timer()
+      }, 500)
+    } else {
+      percentage = 0
+    }
   }
 
   async setupCamera() {
@@ -69,16 +94,11 @@ class Camera extends React.Component {
     let leftWY = poses.keypoints[9].position.y
     if (leftWX > 0 && leftWX < 300 && (leftWY > 0 && leftWY < 200)) {
       this.setState({answer: 'B'})
-
       console.log('B')
-      console.log(this.state, 'this is state')
-      console.log(this.props, 'this is props')
-      console.log(this.props.question, 'this is question')
     }
     if (rightWX > 400 && rightWX < 600 && (rightWY > 0 && rightWY < 200)) {
       this.setState({answer: 'A'})
       console.log('A')
-      console.log(this.state.answer, 'this is anwser')
     }
     if (leftWX > 0 && leftWX < 300 && (leftWY > 600 && leftWY < 800)) {
       this.setState({answer: 'D'})
@@ -98,7 +118,7 @@ class Camera extends React.Component {
   }
 
   render() {
-    const {cameraSet} = this.state
+    const {cameraSet, waterFilter} = this.state
     return (
       <div className="camera">
         {cameraSet ? (
@@ -127,6 +147,7 @@ class Camera extends React.Component {
           autoPlay={true}
           ref={this.getVideo}
         />
+        <div style={waterFilter} />
         <canvas className="canvas" ref={this.getCanvas} />
       </div>
     )
