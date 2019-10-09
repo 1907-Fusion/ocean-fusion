@@ -7,16 +7,21 @@ import {Card, Button, Nav} from 'react-bootstrap'
 /**
  * COMPONENT
  */
+let test
 class AuthForm extends React.Component {
   constructor() {
     super()
     this.state = {show: false}
   }
   showTrue = () => {
+    //register
     this.setState({show: true})
+    test = true
   }
   showFalse = () => {
+    //login
     this.setState({show: false})
+    test = false
   }
   render() {
     const {handleSubmit, error, name} = this.props
@@ -26,19 +31,6 @@ class AuthForm extends React.Component {
         <Card.Body style={{textAlign: 'center'}}>
           <Card.Text>
             <form onSubmit={handleSubmit}>
-              <div>
-                <input
-                  name="name"
-                  type="text"
-                  placeholder="Name"
-                  style={{
-                    width: '600px',
-                    height: '43px',
-                    borderRadius: '4px'
-                  }}
-                />
-              </div>
-              <br />
               <div>
                 <input
                   name="email"
@@ -113,18 +105,18 @@ class AuthForm extends React.Component {
               <Button variant="primary" type="submit">
                 Log In
               </Button>
+              <div>
+                <a className="googleBtn" href="/auth/google">
+                  <img
+                    width="20px"
+                    alt="Google &quot;G&quot; Logo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                  />
+                  Login with Google
+                </a>
+              </div>
             </form>
           </Card.Text>
-          <div>
-            <a className="googleBtn" href="/auth/google">
-              <img
-                width="20px"
-                alt="Google &quot;G&quot; Logo"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-              />
-              Login with Google
-            </a>
-          </div>
         </Card.Body>
       )
     }
@@ -136,13 +128,13 @@ class AuthForm extends React.Component {
           <Card.Header>
             <Nav
               variant="tabs"
-              defaultActiveKey="#first"
+              defaultActiveKey="#login"
               className="justify-content-center"
             >
               <Nav.Item>
                 <Nav.Link
                   className="loginBtn"
-                  href="#first"
+                  href="#login"
                   onClick={this.showFalse}
                   style={{fontSize: '20px'}}
                 >
@@ -151,7 +143,7 @@ class AuthForm extends React.Component {
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link
-                  href="#link"
+                  href="#register"
                   onClick={this.showTrue}
                   style={{fontSize: '20px'}}
                 >
@@ -191,15 +183,16 @@ const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      if (evt.target.name === 'login') {
-        const formName = evt.target.name
-        const email = evt.target.email.value
-        const password = evt.target.password.value
-        dispatch(auth(email, password, formName))
-      } else {
+      if (test) {
         const email = evt.target.email.value
         const password = evt.target.password.value
         dispatch(auth(email, password, 'signup'))
+      } else {
+        const formName = evt.target.name
+        const email = evt.target.email.value
+        const password = evt.target.password.value
+        console.log(email, password, formName)
+        dispatch(auth(email, password, formName))
       }
     }
   }
