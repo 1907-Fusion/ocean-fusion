@@ -4,10 +4,12 @@ import * as posenet from '@tensorflow-models/posenet'
 import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
 
+let percentage = 0
+
 class Camera extends React.Component {
   constructor() {
     super()
-    this.state = {cameraSet: false}
+    this.state = {cameraSet: false, waterFilter: {}}
   }
 
   async componentDidMount() {
@@ -18,6 +20,30 @@ class Camera extends React.Component {
       quantBytes: 1
     })
     await this.setupCamera()
+    setTimeout(() => {
+      this.timer()
+    }, 10000)
+  }
+
+  timer() {
+    if (percentage < 101) {
+      setTimeout(() => {
+        console.log(percentage, 'PERCENTAGE')
+        percentage += 25
+        this.setState({
+          waterFilter: {
+            backgroundColor: 'rgb(0, 109, 170, 0.5)',
+            position: 'absolute',
+            width: '38%',
+            top: '10%',
+            height: `${percentage}%`
+          }
+        })
+        this.timer()
+      }, 500)
+    } else {
+      percentage = 0
+    }
   }
 
   async setupCamera() {
@@ -83,7 +109,7 @@ class Camera extends React.Component {
   }
 
   render() {
-    const {cameraSet} = this.state
+    const {cameraSet, waterFilter} = this.state
     return (
       <div className="camera">
         {cameraSet ? (
@@ -112,6 +138,7 @@ class Camera extends React.Component {
           autoPlay={true}
           ref={this.getVideo}
         />
+        <div style={waterFilter} />
         <canvas className="canvas" ref={this.getCanvas} />
       </div>
     )
