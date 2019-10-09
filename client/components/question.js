@@ -9,6 +9,7 @@ class Question extends React.Component {
 
   render() {
     const {question} = this.props
+    //console.log(this.props)
     return (
       <div id="question-container">
         {question ? (
