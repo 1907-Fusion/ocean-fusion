@@ -6,7 +6,6 @@ class Question extends React.Component {
   componentDidMount() {
     this.props.getRandomQuestion()
   }
-
   render() {
     const {question} = this.props
     //console.log(this.props)
