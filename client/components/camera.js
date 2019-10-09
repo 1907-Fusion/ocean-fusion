@@ -28,7 +28,6 @@ class Camera extends React.Component {
   timer() {
     if (percentage < 101) {
       setTimeout(() => {
-        console.log(percentage, 'PERCENTAGE')
         percentage += 25
         this.setState({
           waterFilter: {
