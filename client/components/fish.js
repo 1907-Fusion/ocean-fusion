@@ -1,7 +1,18 @@
 import React from 'react'
 
 class Fish extends React.Component {
+  constructor() {
+    super()
+    this.state = {arr: []}
+  }
   render() {
+    const {arr} = this.state
+    //change 12 to redux score.
+    for (let i = 0; i < 12; i++) {
+      const time = Math.round(Math.random() * i) * 10
+      arr.push(<span key={i} style={{animationDuration: `${time}s`}} />)
+    }
+
     return (
       <div className="animationContainer">
         <div className="sun" />
@@ -15,9 +26,11 @@ class Fish extends React.Component {
           <div className="wave w-1" />
           <div className="wave w-2" />
           <div className="fish">
-            <span />
-            <span />
-            <span />
+            {arr.length > 0
+              ? arr.map(fish => {
+                  return fish
+                })
+              : ''}
           </div>
         </div>
         <div className="bottom">
