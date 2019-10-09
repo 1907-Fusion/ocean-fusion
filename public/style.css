@@ -165,12 +165,10 @@ li {
 #question-container h2 {
   color: #145c9e;
 }
-
 #question-choices h3 {
   color: #ffffff;
   text-shadow: 3px 3px 2px #474747;
 }
-
 #choice-a {
   background-color: #ffad33;
 }
@@ -182,6 +180,44 @@ li {
 }
 #choice-d {
   background-color: #145c9e;
+}
+
+/* ANSWER CHOICE CIRCLES ON CAMERA */
+
+.answer-circle {
+  border-radius: 50%;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 80px;
+  vertical-align: middle;
+  z-index: 2147483647;
+}
+#answer-circle-a {
+  background: #ffad33;
+  position: absolute;
+  left: 20px;
+  top: 100px;
+}
+#answer-circle-b {
+  background: lightblue;
+  position: absolute;
+  left: 480px;
+  top: 100px;
+}
+#answer-circle-c {
+  background: #44882d;
+  position: absolute;
+  left: 20px;
+  top: 720px;
+}
+#answer-circle-d {
+  background: #145c9e;
+  position: absolute;
+  left: 480px;
+  top: 720px;
 }
 
 .fishTank {

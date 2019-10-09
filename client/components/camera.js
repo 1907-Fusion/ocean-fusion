@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React from 'react'
 import * as posenet from '@tensorflow-models/posenet'
 import 'p5/lib/addons/p5.dom'
@@ -95,6 +96,18 @@ class Camera extends React.Component {
           ref={this.getVideo}
         />
         <canvas className="canvas" ref={this.getCanvas} />
+        <div className="answer-circle" id="answer-circle-a">
+          A
+        </div>
+        <div className="answer-circle" id="answer-circle-b">
+          B
+        </div>
+        <div className="answer-circle" id="answer-circle-c">
+          C
+        </div>
+        <div className="answer-circle" id="answer-circle-d">
+          D
+        </div>
       </div>
     )
   }
