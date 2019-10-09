@@ -3,22 +3,29 @@ import React from 'react'
 import * as posenet from '@tensorflow-models/posenet'
 import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
+import {connect} from 'react-redux'
+import {gotQuestion} from '../store'
 
 let percentage = 0
 
 class Camera extends React.Component {
-  constructor() {
-    super()
-    this.state = {cameraSet: false, waterFilter: {}}
-  }
+  constructor(props) {
+    super(props)
+    this.state = {
+      cameraSet: false,
+      answer: '',
+      waterFilter: {}
+    }
 
   async componentDidMount() {
+    this.props.getQuestion()
     this.posenet = await posenet.load({
       architecture: 'ResNet50',
       outputStride: 32,
       inputResolution: 193,
       quantBytes: 1
     })
+
     await this.setupCamera()
     setTimeout(() => {
       this.timer()
@@ -85,18 +92,21 @@ class Camera extends React.Component {
     let rightWY = poses.keypoints[10].position.y
     let leftWX = poses.keypoints[9].position.x
     let leftWY = poses.keypoints[9].position.y
-    //div height and width
     if (leftWX > 0 && leftWX < 300 && (leftWY > 0 && leftWY < 200)) {
-      console.log('A', leftWX, leftWY)
+      this.setState({answer: 'B'})
+      console.log('B')
     }
     if (rightWX > 400 && rightWX < 600 && (rightWY > 0 && rightWY < 200)) {
-      console.log('B', rightWX, rightWY)
+      this.setState({answer: 'A'})
+      console.log('A')
     }
     if (leftWX > 0 && leftWX < 300 && (leftWY > 600 && leftWY < 800)) {
-      console.log('C', leftWX, leftWY)
+      this.setState({answer: 'D'})
+      console.log('D')
     }
     if (rightWX > 400 && rightWX < 600 && (rightWY > 600 && rightWY < 800)) {
-      console.log('D', rightWX, rightWY)
+      this.setState({answer: 'C'})
+      console.log('C')
     }
   }
   getVideo = element => {
@@ -143,5 +153,12 @@ class Camera extends React.Component {
     )
   }
 }
+const mapStateToProps = state => ({
+  question: state.question
+})
 
-export default Camera
+const mapDispatchToProps = dispatch => ({
+  getQuestion: () => dispatch(gotQuestion())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Camera)
