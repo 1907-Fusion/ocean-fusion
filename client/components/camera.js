@@ -86,7 +86,24 @@ class Camera extends React.Component {
     const {cameraSet} = this.state
     return (
       <div className="camera">
-        {cameraSet ? '' : <Loading />}
+        {cameraSet ? (
+          <div id="answer-circle-container">
+            <div className="answer-circle" id="answer-circle-a">
+              <h2 className="answer-circle-text">A</h2>
+            </div>
+            <div className="answer-circle" id="answer-circle-b">
+              <h2 className="answer-circle-text">B</h2>
+            </div>
+            <div className="answer-circle" id="answer-circle-c">
+              <h2 className="answer-circle-text">C</h2>
+            </div>
+            <div className="answer-circle" id="answer-circle-d">
+              <h2 className="answer-circle-text">D</h2>
+            </div>
+          </div>
+        ) : (
+          <Loading />
+        )}
         <video
           playsInline
           id="webcam"
@@ -96,18 +113,6 @@ class Camera extends React.Component {
           ref={this.getVideo}
         />
         <canvas className="canvas" ref={this.getCanvas} />
-        <div className="answer-circle" id="answer-circle-a">
-          A
-        </div>
-        <div className="answer-circle" id="answer-circle-b">
-          B
-        </div>
-        <div className="answer-circle" id="answer-circle-c">
-          C
-        </div>
-        <div className="answer-circle" id="answer-circle-d">
-          D
-        </div>
       </div>
     )
   }
