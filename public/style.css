@@ -187,37 +187,43 @@ li {
 .answer-circle {
   border-radius: 50%;
   display: flex;
-  height: 80px;
+  height: 100px;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  width: 80px;
+  width: 100px;
   vertical-align: middle;
   z-index: 2147483647;
 }
 #answer-circle-a {
-  background: #ffad33;
+  background-image: radial-gradient(circle at 50%, #fff 50%, #f5de19);
+  box-shadow: 0px 0px 40px #f5de19, inset 0px 0px 100px #f5de19;
   position: absolute;
   left: 20px;
   top: 100px;
 }
 #answer-circle-b {
-  background: lightblue;
+  background-image: radial-gradient(circle at 50%, #fff 50%, lightblue);
+  box-shadow: 0px 0px 40px lightblue, inset 0px 0px 100px lightblue;
   position: absolute;
   left: 480px;
   top: 100px;
 }
 #answer-circle-c {
-  background: #44882d;
+  background-image: radial-gradient(circle at 50%, #fff 50%, #44882d);
+  box-shadow: 0px 0px 40px #44882d, inset 0px 0px 100px #44882d;
   position: absolute;
   left: 20px;
   top: 720px;
 }
 #answer-circle-d {
-  background: #145c9e;
+  background-image: radial-gradient(circle at 50%, #fff 50%, #145c9e);
+  box-shadow: 0px 0px 40px #145c9e, inset 0px 0px 100px #145c9e;
   position: absolute;
   left: 480px;
   top: 720px;
+}
+.answer-circle-text h2 {
 }
 
 .fishTank {
