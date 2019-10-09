@@ -16,7 +16,7 @@ class Camera extends React.Component {
       answer: '',
       waterFilter: {}
     }
-
+  }
   async componentDidMount() {
     this.props.getQuestion()
     this.posenet = await posenet.load({
