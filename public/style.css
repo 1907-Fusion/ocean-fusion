@@ -145,15 +145,7 @@ form div {
   width: 50%;
   text-align: center;
   color: #199999;
-  /* text-shadow: 0px 1px 3px #222222 */
-  /* color: transparent; */
-  /* background: #666666; */
-  /* text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.29); */
 }
-/*
-.summary p {
-  font-size: 22px;
-} */
 .summary h1 {
   font-size: 68px;
   text-align: center;
@@ -169,6 +161,14 @@ form div {
   font-size: 22px;
   line-height: 2;
   text-align: center;
+}
+.summary h4 {
+  color: #fff;
+  font-size: 48px;
+  font-family: 'Love Ya Like A Sister', cursive;
+  text-shadow: 3px 3px 3px #eb5e55;
+  padding-top: 50px;
+  padding-bottom: 30px;
 }
 
 #webcam {
