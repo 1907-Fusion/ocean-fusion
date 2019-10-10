@@ -4,7 +4,7 @@ import * as posenet from '@tensorflow-models/posenet'
 import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
 import {connect} from 'react-redux'
-import {gotQuestion} from '../store'
+import {gotQuestion, me, setScore} from '../store'
 
 let percentage = 0
 
@@ -18,6 +18,7 @@ class Camera extends React.Component {
     }
   }
   async componentDidMount() {
+    this.props.getUser()
     this.props.getQuestion()
     this.posenet = await posenet.load({
       architecture: 'ResNet50',
@@ -95,18 +96,46 @@ class Camera extends React.Component {
     if (leftWX > 0 && leftWX < 300 && (leftWY > 0 && leftWY < 200)) {
       this.setState({answer: 'B'})
       console.log('B')
+      let correctAnswer = this.props.question.answer
+      let userAnswer = this.props.question.choices[1]
+      if (correctAnswer === userAnswer) {
+        console.log(this.props.user.score)
+        this.props.user.score += 200
+        this.props.setScore(this.props.user.score)
+      }
     }
     if (rightWX > 400 && rightWX < 600 && (rightWY > 0 && rightWY < 200)) {
       this.setState({answer: 'A'})
       console.log('A')
+      let correctAnswer = this.props.question.answer
+      let userAnswer = this.props.question.choices[0]
+      if (correctAnswer === userAnswer) {
+        console.log(this.props.user.score)
+        this.props.user.score += 200
+        this.props.setScore(this.props.user.score)
+      }
     }
     if (leftWX > 0 && leftWX < 300 && (leftWY > 600 && leftWY < 800)) {
       this.setState({answer: 'D'})
       console.log('D')
+      let correctAnswer = this.props.question.answer
+      let userAnswer = this.props.question.choices[3]
+      if (correctAnswer === userAnswer) {
+        console.log(this.props.user.score)
+        this.props.user.score += 200
+        this.props.setScore(this.props.user.score)
+      }
     }
     if (rightWX > 400 && rightWX < 600 && (rightWY > 600 && rightWY < 800)) {
       this.setState({answer: 'C'})
       console.log('C')
+      let correctAnswer = this.props.question.answer
+      let userAnswer = this.props.question.choices[2]
+      if (correctAnswer === userAnswer) {
+        console.log(this.props.user.score)
+        this.props.user.score += 200
+        this.props.setScore(this.props.user.score)
+      }
     }
   }
   getVideo = element => {
@@ -154,11 +183,14 @@ class Camera extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  question: state.question
+  question: state.question,
+  user: state.user
 })
 
 const mapDispatchToProps = dispatch => ({
-  getQuestion: () => dispatch(gotQuestion())
+  getQuestion: () => dispatch(gotQuestion()),
+  getUser: () => dispatch(me()),
+  setScore: score => dispatch(setScore(score))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Camera)
