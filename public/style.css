@@ -52,6 +52,14 @@ form div {
   display: flex;
   margin: 0px;
 }
+.margin-left {
+  padding: 0px;
+  margin: 0px;
+}
+.margin-right {
+  padding: 0px;
+  margin: 0px;
+}
 
 .navbar {
   align-items: center;
@@ -214,41 +222,45 @@ form div {
 .answer-circle {
   border-radius: 50%;
   display: flex;
-  height: 100px;
+  height: 180px;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  width: 100px;
+  width: 180px;
   vertical-align: middle;
   z-index: 2147483647;
+}
+.answer-circle > h1 {
+  font-size: 90px;
+  color: #eb5e55;
 }
 #answer-circle-a {
   background-image: radial-gradient(circle at 50%, #fff 50%, #f5de19);
   box-shadow: 0px 0px 40px #f5de19, inset 0px 0px 100px #f5de19;
   position: absolute;
-  left: 5vw;
-  top: 100px;
+  left: 1vw;
+  top: 11vh;
 }
 #answer-circle-b {
   background-image: radial-gradient(circle at 50%, #fff 50%, lightblue);
   box-shadow: 0px 0px 40px lightblue, inset 0px 0px 100px lightblue;
   position: absolute;
-  top: 100px;
+  top: 11vh;
   left: 40vw;
 }
 #answer-circle-c {
   background-image: radial-gradient(circle at 50%, #fff 50%, #44882d);
   box-shadow: 0px 0px 40px #44882d, inset 0px 0px 100px #44882d;
   position: absolute;
-  left: 5vw;
-  top: 75vh;
+  left: 1vw;
+  top: 65vh;
 }
 #answer-circle-d {
   background-image: radial-gradient(circle at 50%, #fff 50%, #145c9e);
   box-shadow: 0px 0px 40px #145c9e, inset 0px 0px 100px #145c9e;
   position: absolute;
   left: 40vw;
-  top: 75vh;
+  top: 65vh;
 }
 
 .fishTank {

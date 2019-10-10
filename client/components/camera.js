@@ -174,16 +174,16 @@ class Camera extends React.Component {
         {cameraSet ? (
           <div id="answer-circle-container">
             <div className="answer-circle" id="answer-circle-a">
-              <h2 className="answer-circle-text">A</h2>
+              <h1>A</h1>
             </div>
             <div className="answer-circle" id="answer-circle-b">
-              <h2 className="answer-circle-text">B</h2>
+              <h1>B</h1>
             </div>
             <div className="answer-circle" id="answer-circle-c">
-              <h2 className="answer-circle-text">C</h2>
+              <h1>C</h1>
             </div>
             <div className="answer-circle" id="answer-circle-d">
-              <h2 className="answer-circle-text">D</h2>
+              <h1>D</h1>
             </div>
           </div>
         ) : (
