@@ -34,9 +34,6 @@ class Camera extends React.Component {
     })
 
     await this.setupCamera()
-    // setTimeout(() => {
-    //   this.timer()
-    // }, 10000)
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -47,26 +44,6 @@ class Camera extends React.Component {
       this.props.getQuestion()
     }
   }
-
-  // timer() {
-  //   if (percentage < 101) {
-  //     setTimeout(() => {
-  //       percentage += 25
-  //       // this.setState({
-  //       //   waterFilter: {
-  //       //     backgroundColor: 'rgb(0, 109, 170, 0.5)',
-  //       //     position: 'absolute',
-  //       //     width: '38%',
-  //       //     top: '10%',
-  //       //     height: `${percentage}%`
-  //       //   }
-  //       // })
-  //       this.timer()
-  //     }, 500)
-  //   } else {
-  //     percentage = 0
-  //   }
-  // }
 
   async setupCamera() {
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
