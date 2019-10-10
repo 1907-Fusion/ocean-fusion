@@ -5,6 +5,7 @@ html {
 }
 body {
   font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to left, rgb(206, 239, 245), #90eff2);
 }
 
 h1 {
@@ -37,8 +38,10 @@ label {
 }
 
 nav a {
-  display: inline-block;
-  margin: 1em;
+  align-items: center;
+  display: flex;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 form div {
@@ -63,12 +66,22 @@ form div {
   align-items: center;
   background-color: #199999;
   justify-content: space-between;
-  height: 80px;
+  height: 75px;
 }
 
 .navbar a {
   color: #ffffff;
   text-shadow: 3px 5px 2px #474747;
+}
+
+#nav-left {
+  margin: 0px;
+  padding: 0px;
+}
+#nav-right {
+  margin: 0px;
+  padding: 0px;
+  align-items: center;
 }
 
 .button {
@@ -134,7 +147,7 @@ form div {
 
 .mainPage {
   display: flex;
-  background: linear-gradient(to left, rgb(181, 240, 250), #3dfaff);
+  /* background: linear-gradient(to left, rgb(181, 240, 250), #79f3f7); */
   height: 95vh;
   overflow-y: hidden;
   /* background: linear-gradient(to right, #C4E0E5, #4CA1AF); */
@@ -182,7 +195,7 @@ form div {
 }
 
 .loading {
-  background-color: lightblue;
+  /* background-color: lightblue; */
   min-height: 900px;
   text-align: center;
   margin-right: 10px;
@@ -274,7 +287,6 @@ form div {
   left: 40vw;
   top: 65vh;
 }
-
 
 .fishTank {
   border-radius: 24px;
