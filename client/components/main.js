@@ -16,29 +16,19 @@ class Main extends React.Component {
           src="http://sannenijboer.nl/wp-content/uploads/2018/01/wereldbol.png"
         />
         <div className="summary">
-          <h1>Ocean Fusion</h1>
-          <br />
+          <h1>Let's Play Ocean Fusion</h1>
+          <h3>🌎 Do you know how to save the world? We'll ask a question...</h3>
           <h3>
-            <i>How to play:</i>
+            👋 <b>WAVE YOUR HAND</b> over your answer!
           </h3>
-          <br />
-          <li>
-            <p>
-              1. A trivia question with multiple choice answers will appear on
-              the screen
-            </p>
-            <p>2. Player will choose the answer using their arms</p>
-            <p>
-              3. If the correct answer is chosen, a new fish will appear on the
-              animation
-            </p>
-            <p>4. If the wrong answer is chosen, a fish will be killed</p>
-            <p>
-              5. The game ends when there are no more fish in the ocean or when
-              time runs out
-            </p>
-          </li>
-          <Button className="button">
+          <h3>🐟 If you pick the right answer, more fish will appear!</h3>
+          <h3>
+            🎣 If you pick the wrong answer, the ocean's fish will disappear...
+          </h3>
+          <h3>😵 It's GAME OVER if all the fish are gone!</h3>
+
+          <h4>Can you save the world in 5 minutes?</h4>
+          <Button className="button" id="mainPageBtn">
             <Link to="/login">Play Game</Link>
           </Button>
         </div>

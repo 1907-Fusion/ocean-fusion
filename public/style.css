@@ -1,22 +1,19 @@
-/* dark blue #007ea7
-light blue #99ffff
- golden #ffad33
- green #32a842 */
-
 html {
   min-height: 100%;
   overflow-y: scroll;
   max-height: 750px;
 }
 body {
-  min-height: 100%;
-  max-height: 750px;
+  /* min-height: 100%; */
+  /* max-height: 750px; */
   font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
   font-family: 'Love Ya Like A Sister', cursive;
   font-size: 50px;
+  color: #ffffff;
+  text-shadow: 3px 3px 3px #474747;
 }
 
 a {
@@ -48,7 +45,7 @@ form div {
 
 .navbar {
   align-items: center;
-  background-color: #115898;
+  background-color: #199999;
   justify-content: space-between;
   height: 80px;
 }
@@ -60,18 +57,17 @@ form div {
 
 .button {
   color: #fff;
-  background-color: #ffad33;
+  background-color: #eb5e55;
+  box-shadow: 10px 5px 5px #199999;
+  /* background-color: #ffad33; */
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(0, 0, 0, 0.5);
   border: 0px;
   border-radius: 5px;
   margin: 5px;
 }
-button:focus {
-  outline: 0;
-}
 .button:hover {
-  background-color: #32a842;
+  background-color: #49c6e5;
   transform: scale(1.2);
   transition: all 0.5s ease;
 }
@@ -98,6 +94,11 @@ button:focus {
   padding: 15px;
 }
 
+#mainPageBtn {
+  font-size: 40px;
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
 #earth {
   width: 400px;
   height: 400px;
@@ -114,8 +115,10 @@ button:focus {
 
 .mainPage {
   display: flex;
-  background-color: lightblue;
-  height: 100vh;
+  background: linear-gradient(to left, rgb(181, 240, 250), #3dfaff);
+  height: 95vh;
+  overflow-y: hidden;
+  /* background: linear-gradient(to right, #C4E0E5, #4CA1AF); */
 }
 
 .summary {
@@ -124,27 +127,46 @@ button:focus {
   align-content: space-around;
   width: 50%;
   text-align: center;
-  color: transparent;
-  background: #666666;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.29);
+  color: #199999;
+  /* text-shadow: 0px 1px 3px #222222 */
+  /* color: transparent; */
+  /* background: #666666; */
+  /* text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.29); */
 }
-
+/*
 .summary p {
   font-size: 22px;
+} */
+.summary h1 {
+  font-size: 68px;
+  text-align: center;
+  padding-bottom: 10px;
 }
-
-li {
-  list-style: none;
+.summary h2 {
+  color: #fff;
+  font-size: 48px;
+  font-family: 'Love Ya Like A Sister', cursive;
+  text-shadow: 3px 3px 3px #474747;
+}
+.summary h3 {
+  font-size: 22px;
+  line-height: 2;
+  text-align: center;
+}
+.summary h4 {
+  color: #fff;
+  font-size: 48px;
+  font-family: 'Love Ya Like A Sister', cursive;
+  text-shadow: 3px 3px 3px #eb5e55;
+  padding-top: 50px;
+  padding-bottom: 30px;
 }
 
 #webcam {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   z-index: -1;
-  /* filter: sepia(100%) hue-rotate(170deg) saturate(500%) grayscale(50%);
+  /* filter: sepia(100%) hue-rotate(170deg) saturate(500%) grayscale(50%); */
 }
 
 .question-container {
@@ -156,12 +178,6 @@ li {
   min-height: 900px;
   text-align: center;
   margin-right: 10px;
-}
-
-.loading h1 {
-  padding: 64px;
-  color: #ffffff;
-  text-shadow: 3px 3px 3px #474747;
 }
 
 .camera {
