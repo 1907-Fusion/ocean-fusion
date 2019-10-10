@@ -4,8 +4,6 @@ html {
   max-height: 750px;
 }
 body {
-  /* min-height: 100%; */
-  /* max-height: 750px; */
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -88,6 +86,10 @@ form div {
   background-color: #49c6e5;
   transform: scale(1.2);
   transition: all 0.5s ease;
+}
+
+.button:focus {
+  outline: 0;
 }
 
 .button a {
@@ -179,10 +181,6 @@ form div {
   /* filter: sepia(100%) hue-rotate(170deg) saturate(500%) grayscale(50%); */
 }
 
-.question-container {
-  background-color: #007ea7;
-}
-
 .loading {
   background-color: lightblue;
   min-height: 900px;
@@ -196,25 +194,39 @@ form div {
 .camera {
   margin-right: 10px;
 }
-
-#question-container h2 {
-  color: #145c9e;
+#question-container {
+  box-shadow: 0 8px 6px -6px black;
+  margin: 10px;
+  border-radius: 15px;
+  background: linear-gradient(#e46887, #eab585);
+  padding: 18px;
 }
-#question-choices h3 {
+#question-container h2 {
+  color: #fff;
+  font-size: 28px;
+  font-family: 'Love Ya Like A Sister', cursive;
+  text-shadow: 3px 3px 3px #eb5e55;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+#question-choices h4 {
+  /* width: auto; */
+  display: flex;
   color: #ffffff;
   text-shadow: 3px 3px 2px #474747;
+  padding: 5px;
 }
 #choice-a {
-  background-color: #ffad33;
+  display: flex;
 }
 #choice-b {
-  background-color: lightblue;
+  display: flex;
 }
 #choice-c {
-  background-color: #44882d;
+  display: flex;
 }
 #choice-d {
-  background-color: #145c9e;
+  display: flex;
 }
 
 /* ANSWER CHOICE CIRCLES ON CAMERA */
@@ -263,9 +275,11 @@ form div {
   top: 65vh;
 }
 
+
 .fishTank {
-  margin: 0;
-  height: 60%;
+  border-radius: 24px;
+  margin: 14px;
+  height: 40vh;
   overflow: hidden;
   font-family: 'Libre Franklin', sans-serif;
   font-size: 62.5%;
