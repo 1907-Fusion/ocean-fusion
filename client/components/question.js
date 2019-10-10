@@ -19,16 +19,16 @@ class Question extends React.Component {
             {question.choices && question.choices.length > 0 ? (
               <div id="question-choices">
                 <div id="choice-a">
-                  <h3>A. {question.choices[0]}</h3>
+                  <h4>A. {question.choices[0]}</h4>
                 </div>
                 <div id="choice-b">
-                  <h3>B. {question.choices[1]}</h3>
+                  <h4>B. {question.choices[1]}</h4>
                 </div>
                 <div id="choice-c">
-                  <h3>C. {question.choices[2]}</h3>
+                  <h4>C. {question.choices[2]}</h4>
                 </div>
                 <div id="choice-d">
-                  <h3>D. {question.choices[3]}</h3>
+                  <h4>D. {question.choices[3]}</h4>
                 </div>
               </div>
             ) : null}

@@ -10,8 +10,8 @@ class Game extends React.Component {
       <div className="main">
         <Camera />
         <div>
-          <Question />
           <Ocean />
+          <Question />
         </div>
       </div>
     )
