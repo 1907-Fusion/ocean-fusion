@@ -8,8 +8,10 @@ class Game extends React.Component {
   render() {
     return (
       <div className="main">
-        <Camera />
-        <div>
+        <div className="main-left">
+          <Camera />
+        </div>
+        <div className="main-right">
           <Ocean />
           <Question />
         </div>

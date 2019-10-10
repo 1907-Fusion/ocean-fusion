@@ -6,6 +6,7 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const SET_SCORE = 'SET_SCORE'
 
 /**
  * INITIAL STATE
@@ -17,6 +18,7 @@ const defaultUser = {}
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+export const setScore = score => ({type: SET_SCORE, score})
 
 /**
  * THUNK CREATORS
@@ -59,14 +61,16 @@ export const logout = () => async dispatch => {
 /**
  * REDUCER
  */
-const user = (state = defaultUser, action) => {
+const user = (user = defaultUser, action) => {
   switch (action.type) {
     case GET_USER:
       return action.user
     case REMOVE_USER:
       return defaultUser
+    case SET_SCORE:
+      return {...user, score: action.score}
     default:
-      return state
+      return user
   }
 }
 
