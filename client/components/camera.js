@@ -7,6 +7,7 @@ import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
 import {connect} from 'react-redux'
 import {gotQuestion, me, setScore} from '../store'
+import {ToastsContainer, ToastsStore} from 'react-toasts'
 
 let percentage = 0
 
@@ -111,6 +112,7 @@ class Camera extends React.Component {
         console.log(this.props.user.score)
         this.props.user.score += 200
         this.props.setScore(this.props.user.score)
+        ToastsStore.success('B is the correct answer')
       }
     }
     if (
@@ -126,6 +128,7 @@ class Camera extends React.Component {
         console.log(this.props.user.score)
         this.props.user.score += 200
         this.props.setScore(this.props.user.score)
+        ToastsStore.success('A is the correct answer')
       }
     }
     if (
@@ -141,6 +144,7 @@ class Camera extends React.Component {
         console.log(this.props.user.score)
         this.props.user.score += 200
         this.props.setScore(this.props.user.score)
+        ToastsStore.success('D is the correct answer')
       }
     }
     if (
@@ -156,6 +160,7 @@ class Camera extends React.Component {
         console.log(this.props.user.score)
         this.props.user.score += 200
         this.props.setScore(this.props.user.score)
+        ToastsStore.success('C is the correct answer')
       }
     }
   }
@@ -171,6 +176,7 @@ class Camera extends React.Component {
     const {cameraSet, waterFilter} = this.state
     return (
       <div className="camera">
+        <ToastsContainer className="toasts" store={ToastsStore} />
         {cameraSet ? (
           <div id="answer-circle-container">
             <div className="answer-circle" id="answer-circle-a">
