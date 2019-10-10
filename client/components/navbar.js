@@ -17,7 +17,6 @@ const Navbar = ({handleClick, isLoggedIn, name, score}) => (
           </div>
           <div id="nav-right" style={{display: 'flex'}}>
             <h3 style={{color: 'white', margin: '14px'}}>Hello, {name}</h3>
-            <h3>Score: {score}</h3>
             <Link to="/game">
               <button className="button" type="button">
                 New Game
@@ -28,6 +27,7 @@ const Navbar = ({handleClick, isLoggedIn, name, score}) => (
                 Logout
               </button>
             </Link>
+            <h1 className="score-title">Score: {score}</h1>
           </div>
         </div>
       ) : (

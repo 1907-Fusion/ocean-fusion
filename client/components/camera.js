@@ -1,3 +1,5 @@
+/* eslint-disable max-statements */
+/* eslint-disable react/no-unused-state */
 /* eslint-disable complexity */
 import React from 'react'
 import * as posenet from '@tensorflow-models/posenet'
@@ -13,8 +15,9 @@ class Camera extends React.Component {
     super(props)
     this.state = {
       cameraSet: false,
-      answer: '',
-      waterFilter: {}
+      waterFilter: {},
+      videoHeight: window.innerHeight * 0.8,
+      videoWidth: window.innerWidth * 0.5
     }
   }
   async componentDidMount() {
@@ -37,15 +40,15 @@ class Camera extends React.Component {
     if (percentage < 101) {
       setTimeout(() => {
         percentage += 25
-        this.setState({
-          waterFilter: {
-            backgroundColor: 'rgb(0, 109, 170, 0.5)',
-            position: 'absolute',
-            width: '38%',
-            top: '10%',
-            height: `${percentage}%`
-          }
-        })
+        // this.setState({
+        //   waterFilter: {
+        //     backgroundColor: 'rgb(0, 109, 170, 0.5)',
+        //     position: 'absolute',
+        //     width: '38%',
+        //     top: '10%',
+        //     height: `${percentage}%`
+        //   }
+        // })
         this.timer()
       }, 500)
     } else {
@@ -64,8 +67,8 @@ class Camera extends React.Component {
         audio: false,
         video: {
           facingMode: 'user',
-          width: 600,
-          height: 800
+          width: this.state.videoWidth,
+          height: this.state.videoHeight
         }
       })
       this.setState({cameraSet: true})
@@ -89,11 +92,17 @@ class Camera extends React.Component {
   }
 
   gotPoses(poses) {
+    let width = this.state.videoWidth
+    let height = this.state.videoHeight
     let rightWX = poses.keypoints[10].position.x
     let rightWY = poses.keypoints[10].position.y
     let leftWX = poses.keypoints[9].position.x
     let leftWY = poses.keypoints[9].position.y
-    if (leftWX > 0 && leftWX < 300 && (leftWY > 0 && leftWY < 200)) {
+    if (
+      leftWX > 0 &&
+      leftWX < width * 0.2 &&
+      (leftWY > 0 && leftWY < height * 0.2)
+    ) {
       this.setState({answer: 'B'})
       console.log('B')
       let correctAnswer = this.props.question.answer
@@ -104,7 +113,11 @@ class Camera extends React.Component {
         this.props.setScore(this.props.user.score)
       }
     }
-    if (rightWX > 400 && rightWX < 600 && (rightWY > 0 && rightWY < 200)) {
+    if (
+      rightWX > width * 0.8 &&
+      rightWX < width &&
+      (rightWY > 0 && rightWY < height * 0.2)
+    ) {
       this.setState({answer: 'A'})
       console.log('A')
       let correctAnswer = this.props.question.answer
@@ -115,7 +128,11 @@ class Camera extends React.Component {
         this.props.setScore(this.props.user.score)
       }
     }
-    if (leftWX > 0 && leftWX < 300 && (leftWY > 600 && leftWY < 800)) {
+    if (
+      leftWX > 0 &&
+      leftWX < width * 0.2 &&
+      (leftWY > height * 0.8 && leftWY < height)
+    ) {
       this.setState({answer: 'D'})
       console.log('D')
       let correctAnswer = this.props.question.answer
@@ -126,7 +143,11 @@ class Camera extends React.Component {
         this.props.setScore(this.props.user.score)
       }
     }
-    if (rightWX > 400 && rightWX < 600 && (rightWY > 600 && rightWY < 800)) {
+    if (
+      rightWX > width * 0.8 &&
+      rightWX < width &&
+      (rightWY > height * 0.8 && rightWY < height)
+    ) {
       this.setState({answer: 'C'})
       console.log('C')
       let correctAnswer = this.props.question.answer
@@ -171,12 +192,12 @@ class Camera extends React.Component {
         <video
           playsInline
           id="webcam"
-          width="600"
-          height="800"
+          width={this.state.videoWidth}
+          height={this.state.videoHeight}
           autoPlay={true}
           ref={this.getVideo}
         />
-        <div style={waterFilter} />
+        {/* <div style={waterFilter} /> */}
         <canvas className="canvas" ref={this.getCanvas} />
       </div>
     )
