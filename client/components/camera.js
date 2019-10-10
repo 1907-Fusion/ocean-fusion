@@ -112,7 +112,7 @@ class Camera extends React.Component {
       if (correctAnswer === userAnswer) {
         console.log(this.props.user.score)
         this.props.user.score += 200
-        this.props.setScore()
+        this.props.setScore(this.props.user.score)
       }
     }
     if (leftWX > 0 && leftWX < 300 && (leftWY > 600 && leftWY < 800)) {
@@ -123,7 +123,7 @@ class Camera extends React.Component {
       if (correctAnswer === userAnswer) {
         console.log(this.props.user.score)
         this.props.user.score += 200
-        this.props.setScore()
+        this.props.setScore(this.props.user.score)
       }
     }
     if (rightWX > 400 && rightWX < 600 && (rightWY > 600 && rightWY < 800)) {
@@ -134,7 +134,7 @@ class Camera extends React.Component {
       if (correctAnswer === userAnswer) {
         console.log(this.props.user.score)
         this.props.user.score += 200
-        this.props.setScore()
+        this.props.setScore(this.props.user.score)
       }
     }
   }
