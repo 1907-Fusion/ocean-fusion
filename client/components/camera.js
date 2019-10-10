@@ -6,23 +6,25 @@ import * as posenet from '@tensorflow-models/posenet'
 import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
 import {connect} from 'react-redux'
-import {gotQuestion, me, setScore} from '../store'
+import {gotQuestion, getScore} from '../store'
 import {ToastsContainer, ToastsStore} from 'react-toasts'
 
-let percentage = 0
+// let percentage = 0
 
 class Camera extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       cameraSet: false,
-      waterFilter: {},
+      // waterFilter: {},
       videoHeight: window.innerHeight * 0.8,
-      videoWidth: window.innerWidth * 0.5
+      videoWidth: window.innerWidth * 0.5,
+      answer: '',
+      score: 0,
+      check: false
     }
   }
   async componentDidMount() {
-    this.props.getUser()
     this.props.getQuestion()
     this.posenet = await posenet.load({
       architecture: 'ResNet50',
@@ -32,30 +34,39 @@ class Camera extends React.Component {
     })
 
     await this.setupCamera()
-    setTimeout(() => {
-      this.timer()
-    }, 10000)
+    // setTimeout(() => {
+    //   this.timer()
+    // }, 10000)
   }
 
-  timer() {
-    if (percentage < 101) {
-      setTimeout(() => {
-        percentage += 25
-        // this.setState({
-        //   waterFilter: {
-        //     backgroundColor: 'rgb(0, 109, 170, 0.5)',
-        //     position: 'absolute',
-        //     width: '38%',
-        //     top: '10%',
-        //     height: `${percentage}%`
-        //   }
-        // })
-        this.timer()
-      }, 500)
-    } else {
-      percentage = 0
+  componentDidUpdate(prevProps, prevState) {
+    console.log(this.state.score)
+    if (this.state.score !== prevState.score) {
+      this.setState({check: false})
+      this.props.getScore(this.state.score)
+      this.props.getQuestion()
     }
   }
+
+  // timer() {
+  //   if (percentage < 101) {
+  //     setTimeout(() => {
+  //       percentage += 25
+  //       // this.setState({
+  //       //   waterFilter: {
+  //       //     backgroundColor: 'rgb(0, 109, 170, 0.5)',
+  //       //     position: 'absolute',
+  //       //     width: '38%',
+  //       //     top: '10%',
+  //       //     height: `${percentage}%`
+  //       //   }
+  //       // })
+  //       this.timer()
+  //     }, 500)
+  //   } else {
+  //     percentage = 0
+  //   }
+  // }
 
   async setupCamera() {
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
@@ -107,11 +118,10 @@ class Camera extends React.Component {
       this.setState({answer: 'B'})
       console.log('B')
       let correctAnswer = this.props.question.answer
-      let userAnswer = this.props.question.choices[1]
-      if (correctAnswer === userAnswer) {
-        console.log(this.props.user.score)
-        this.props.user.score += 200
-        this.props.setScore(this.props.user.score)
+      let userAnswer = this.state.answer
+      console.log('B', userAnswer, correctAnswer)
+      if (correctAnswer === userAnswer && !this.state.check) {
+        this.setState({score: this.state.score + 5, check: true})
         ToastsStore.success('B is the correct answer')
       }
     }
@@ -123,11 +133,10 @@ class Camera extends React.Component {
       this.setState({answer: 'A'})
       console.log('A')
       let correctAnswer = this.props.question.answer
-      let userAnswer = this.props.question.choices[0]
-      if (correctAnswer === userAnswer) {
-        console.log(this.props.user.score)
-        this.props.user.score += 200
-        this.props.setScore(this.props.user.score)
+      let userAnswer = this.state.answer
+      console.log('A', userAnswer, correctAnswer)
+      if (correctAnswer === userAnswer && !this.state.check) {
+        this.setState({score: this.state.score + 5, check: true})
         ToastsStore.success('A is the correct answer')
       }
     }
@@ -139,11 +148,10 @@ class Camera extends React.Component {
       this.setState({answer: 'D'})
       console.log('D')
       let correctAnswer = this.props.question.answer
-      let userAnswer = this.props.question.choices[3]
-      if (correctAnswer === userAnswer) {
-        console.log(this.props.user.score)
-        this.props.user.score += 200
-        this.props.setScore(this.props.user.score)
+      let userAnswer = this.state.answer
+      console.log('B', userAnswer, correctAnswer)
+      if (correctAnswer === userAnswer && !this.state.check) {
+        this.setState({score: this.state.score + 5, check: true})
         ToastsStore.success('D is the correct answer')
       }
     }
@@ -155,11 +163,10 @@ class Camera extends React.Component {
       this.setState({answer: 'C'})
       console.log('C')
       let correctAnswer = this.props.question.answer
-      let userAnswer = this.props.question.choices[2]
-      if (correctAnswer === userAnswer) {
-        console.log(this.props.user.score)
-        this.props.user.score += 200
-        this.props.setScore(this.props.user.score)
+      let userAnswer = this.state.answer
+      console.log('B', userAnswer, correctAnswer)
+      if (correctAnswer === userAnswer && !this.state.check) {
+        this.setState({score: this.state.score + 5, check: true})
         ToastsStore.success('C is the correct answer')
       }
     }
@@ -173,7 +180,7 @@ class Camera extends React.Component {
   }
 
   render() {
-    const {cameraSet, waterFilter} = this.state
+    const {cameraSet} = this.state
     return (
       <div className="camera">
         <ToastsContainer className="toasts" store={ToastsStore} />
@@ -209,15 +216,16 @@ class Camera extends React.Component {
     )
   }
 }
-const mapStateToProps = state => ({
-  question: state.question,
-  user: state.user
-})
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    question: state.question
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   getQuestion: () => dispatch(gotQuestion()),
-  getUser: () => dispatch(me()),
-  setScore: score => dispatch(setScore(score))
+  getScore: scores => dispatch(getScore(scores))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Camera)

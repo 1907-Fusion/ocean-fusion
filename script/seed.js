@@ -17,7 +17,7 @@ async function seed() {
       content:
         "Which ocean's fish populations have taken the hardest hit from overfishing?",
       choices: ['Pacific', 'Atlantic', 'Indian', 'Arctic'],
-      answer: 'Atlantic'
+      answer: 'B'
     }),
     Question.create({
       content: "Where is the world's largest marine sanctuary?",
@@ -27,7 +27,7 @@ async function seed() {
         'West Indies (Atlantic Ocean)',
         'Phoenix Islands (Pacific Ocean)'
       ],
-      answer: 'Phoenix Islands (Pacific Ocean)'
+      answer: 'D'
     }),
     Question.create({
       content:
@@ -38,7 +38,7 @@ async function seed() {
         '4-8 in (10-20 cm)',
         '15-20 in (38-51 cm)'
       ],
-      answer: '4-8 in (10-20 cm)'
+      answer: 'C'
     }),
     Question.create({
       content:
@@ -49,19 +49,19 @@ async function seed() {
         'Comb jellyfish',
         'Sockeye salmon'
       ],
-      answer: 'Comb jellyfish'
+      answer: 'C'
     }),
     Question.create({
       content:
         'What area of the ocean is suffering the most from habitat destruction?',
       choices: ['Coasts', 'Ocean Floor', 'Deep Sea', 'Estuaries'],
-      answer: 'Coasts'
+      answer: 'A'
     }),
     Question.create({
       content:
         'Industrial fishing is estimated to have wiped out what percent of large predatory fish?',
       choices: ['10%', '20%', '60%', '90%'],
-      answer: '90%'
+      answer: 'D'
     }),
     Question.create({
       content: 'More than 80% of ocean pollution comes from what activities?',
@@ -71,17 +71,17 @@ async function seed() {
         'Flight Activities',
         'Both (It is fairly divided)'
       ],
-      answer: 'Land Activities'
+      answer: 'B'
     }),
     Question.create({
       content: 'Elevated water temperature can cause corals to do what?',
       choices: ['Grow too quickly', 'Bleach', 'Eat themselves', 'Reproduce'],
-      answer: 'Bleach'
+      answer: 'B'
     }),
     Question.create({
       content: 'What animals are most at risk from ocean acidification?',
       choices: ['Shellfish', 'Marine Mammals', 'Bottom-Feeding Fish', 'Sharks'],
-      answer: 'Shellfish'
+      answer: 'A'
     }),
     Question.create({
       content:
@@ -92,47 +92,47 @@ async function seed() {
         'The Sea of Japan',
         'Indian Ocean'
       ],
-      answer: 'North Pacific'
+      answer: 'B'
     }),
     Question.create({
       content: "How much of the earth's surface is covered by water?",
       choices: ['87%', '75%', '47%', '60%'],
-      answer: '75%'
+      answer: 'B'
     }),
     Question.create({
       content:
         'Pasca, a Native American word for bread, gave this Gulf coast city its name.',
       choices: ['Pascagoula', 'Des Moines', 'Pudget Sound', 'Mount Rainier'],
-      answer: 'Pascagoula'
+      answer: 'A'
     }),
     Question.create({
       content: "How much of the world's carbon dioxide do oceans absorb?",
       choices: ['30%', '60%', '90%', '10%'],
-      answer: '30%'
+      answer: 'A'
     }),
     Question.create({
       content:
         'How many people depend on marine and coastal biodiversity for their livelihoods?',
       choices: ['4 billion', '3 billion', '2 billion', '1 billion'],
-      answer: '3 billion'
+      answer: 'B'
     }),
     Question.create({
       content:
         "Women constitute half of the workforce. But in aquaculture, they earn what percentage of men's wage?",
       choices: ['82%', '75%', '64%', '100%'],
-      answer: '64%'
+      answer: 'C'
     }),
     Question.create({
       content:
         'How many marine animals are killed annually by plastic in the ocean?',
       choices: ['100,000', '200,000', '10000', '25,000'],
-      answer: '100,000'
+      answer: 'A'
     }),
     Question.create({
       content:
         'About how many tons of plastic ends up in the ocean every year?',
       choices: ['13 million', '10 million', '5 million', '20 million'],
-      answer: '13 million'
+      answer: 'A'
     }),
     Question.create({
       content: 'What is the most ubiquitous type of litter on the planet?',
@@ -142,7 +142,7 @@ async function seed() {
         'Plastic cups',
         'Beer cans'
       ],
-      answer: 'Cigarette butts'
+      answer: 'B'
     }),
     Question.create({
       content:
@@ -153,7 +153,7 @@ async function seed() {
         'The State of California',
         'The Environmental Protection Agency'
       ],
-      answer: 'The U.S. Forest Service'
+      answer: 'B'
     }),
     Question.create({
       content: 'What can you do to help stop plastic pollution?',
@@ -163,13 +163,13 @@ async function seed() {
         'Ask merchants, restaurants and other establishments you frequent to consider using plastic-free alternatives.',
         'All of the above'
       ],
-      answer: 'All of the above'
+      answer: 'D'
     }),
     Question.create({
       content:
         'On average, how many aluminum soda cans are used in the United States each year?',
       choices: ['1 million', '90 million', '120 million', ' 3 billion'],
-      answer: '120 million'
+      answer: 'C'
     }),
     Question.create({
       content:
@@ -180,7 +180,7 @@ async function seed() {
         '$1 for every $100 spent',
         '$1 for every $1,000 spent'
       ],
-      answer: '$1 for every $10 spent'
+      answer: 'A'
     }),
     Question.create({
       content: 'How much energy does recycling just one aluminum can save?',
@@ -190,7 +190,7 @@ async function seed() {
         'Enough to power a computer for 15 minutes',
         'Enough to power a TV for 3 hours'
       ],
-      answer: 'Enough to power a TV for 3 hours'
+      answer: 'D'
     }),
     Question.create({
       content:
@@ -201,7 +201,7 @@ async function seed() {
         '3 times',
         'None, it takes more energy to recycle'
       ],
-      answer: '2 times'
+      answer: 'A'
     }),
     Question.create({
       content:
@@ -212,31 +212,31 @@ async function seed() {
         '4000 years',
         'It will never break down'
       ],
-      answer: '4000 years'
+      answer: 'C'
     }),
     Question.create({
       content:
         'The US Department of Energy (DOE) recommends turning off the monitor and placing the computer on sleep mode if you are not going to use it for more than _______.',
       choices: ['2 hours', '6 hours', '45 minutes', '20 minutes'],
-      answer: '20 minutes'
+      answer: 'D'
     }),
     Question.create({
       content:
         'Compact Florescent Lighting -CFLs- use ______ of the energy needed for incandescent bulbs.',
       choices: ['25%', '50%', '75%', '100%'],
-      answer: '25%'
+      answer: 'A'
     }),
     Question.create({
       content:
         'How many gallons of motor gasoline does the average American consume in one year?',
       choices: ['150 gallons', '500 gallons', '310 gallons', '750 gallons'],
-      answer: '500 gallons'
+      answer: 'B'
     }),
     Question.create({
       content:
         'How much does the average American consume in paper, wood, and other products made from trees each year?',
       choices: ['1 tree', ' 5 trees', '7 trees', '15 trees'],
-      answer: '7 trees'
+      answer: 'C'
     }),
     Question.create({
       content:
@@ -247,24 +247,24 @@ async function seed() {
         'Either is fine',
         'Plastic'
       ],
-      answer: 'None - carry your own bag'
+      answer: 'B'
     }),
     Question.create({
       content:
         'Approximately how much global electricity output is produced from renewable sources?',
       choices: ['5%', '10%', '1%', '20%'],
-      answer: '10%'
+      answer: 'B'
     }),
     Question.create({
       content:
         'Which of the following is an alternative material for making paper?',
       choices: ['Panda Excrement', 'Sheepskin', 'Hemp', 'All of the Above'],
-      answer: 'All of the Above'
+      answer: 'D'
     }),
     Question.create({
       content: 'What percentage of life on Earth resides in the ocean?',
       choices: ['72%', '94%', '55%', '33%'],
-      answer: '94%'
+      answer: 'B'
     }),
     Question.create({
       content:
@@ -275,7 +275,7 @@ async function seed() {
         'Near Area 51',
         'On Roosevelt Island, New York'
       ],
-      answer: 'Along the ocean floor',
+      answer: 'A',
       explanation:
         'The vast majority of the cables that power the Internet, allowing access to it across the entire globe, are underwater. Wires called “submarine communications cables” crisscross the ocean floors, put in place by boats built solely for that purpose. To ensure that the cables remain undisturbed, they have to be placed on relatively flat stretches of the ocean floor, away from ocean ecosystems or shipwrecks.'
     }),
@@ -288,7 +288,7 @@ async function seed() {
         'Throwing away less food',
         'Eating a plant-heavy diet'
       ],
-      answer: 'Throwing away less food',
+      answer: 'C',
       explanation:
         'A third of all food that we raise or grow never makes it onto our plates, and that waste accounts for around 8% of global emissions.'
     }),
@@ -301,7 +301,7 @@ async function seed() {
         'Taking less airplane trips',
         'Investing in high-speed trains'
       ],
-      answer: 'Driving an electric car',
+      answer: 'A',
       explanation:
         'If just 16% of the miles we drive were traveled in an electric-powered vehicle instead of a gas-powered one, it could keep 10 gigatons of carbon emissions out of the air.'
     }),
@@ -314,7 +314,7 @@ async function seed() {
         'Installing green roofs',
         'Switching to LED lightbulbs'
       ],
-      answer: 'Switching to LED lightbulbs',
+      answer: 'D',
       explanation:
         'LED lightbulbs cost more, but they use far less energy than incandescent and compact fluorescent bulbs, and they last longer.'
     }),
@@ -327,7 +327,7 @@ async function seed() {
         'Using water more efficiently',
         'Recycling More'
       ],
-      answer: 'Cleaning up chemicals in our refrigerators and ACs',
+      answer: 'A',
       explanation:
         'Recycling, using less water and switching to cleaner cement would all help slow climate change. But the chemicals used in our refrigerators and A/C units trap thousands of times more heat than CO2, so containing them is essential to stopping global warming. If we prevent refrigerants from leaking and switch to using cleaner chemicals, it would be like keeping nearly 90 gigatons of C02 out of the atmosphere.'
     }),
@@ -340,7 +340,7 @@ async function seed() {
         'Building more solar farms',
         'Capturing energy from ocean waves'
       ],
-      answer: 'Building more wind farms',
+      answer: 'B',
       explanation:
         'While solar has potential as a dominant electricity source in the future, Project Drawdown says investing in onshore wind farms offers the greatest reduction in CO2 emissions. Wind farms can also be built quickly, and the land they sit on can be used for farming or grazing simultaneously.'
     }),
@@ -352,7 +352,7 @@ async function seed() {
         'Underwater in the Denmark Strait',
         'Gullfoss Waterfall, Iceland'
       ],
-      answer: 'Underwater in the Denmark Strait',
+      answer: 'C',
       explanation:
         'Caverns and fissures are formed on the ocean floor form when water oozes through layers of salt - creating waterfalls! The Denmark Strait is a massive cascade of water that plummets 11,500 feet (more than three times the height of Angel Falls in Venezuela).'
     }),
@@ -364,12 +364,12 @@ async function seed() {
         'There is no such thing as plastic waste, all plastic is recycled',
         'It is dumped in the ocean for fish to eat'
       ],
-      answer: 'It never fully goes away, it just breaks into little pieces'
+      answer: 'B'
     }),
     Question.create({
       content: 'What percent of its plastic does the U.S. recycle?',
       choices: ['9%', '35%', '50%', '75%'],
-      answer: '9%',
+      answer: 'A',
       explanation:
         'As of 2015, about 6.3 billion metric tons (Mt) of plastic has been produced in the U.S. and, of that, only 9% has been recycled, found a recent study published on Science Advances.'
     }),
@@ -381,7 +381,7 @@ async function seed() {
         '3 bottles of water',
         '6 bottles of water'
       ],
-      answer: '3 bottles of water',
+      answer: 'C',
       explanation:
         'According to the Pacific Institute, producing a water bottle (including the plastic container and the filtered water inside) requires three times the amount of water in the actual bottle. In other words, every liter of bottled water sold represents 3 liters of water used. And this doesn’t say anything about the energy required to transport it.'
     })
