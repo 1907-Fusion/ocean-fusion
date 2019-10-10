@@ -56,10 +56,12 @@ form div {
 .margin-left {
   padding: 0px;
   margin: 0px;
+  width: 50%;
 }
 .margin-right {
   padding: 0px;
   margin: 0px;
+  width: 50%;
 }
 
 .navbar {
@@ -219,11 +221,10 @@ form div {
   font-size: 28px;
   font-family: 'Love Ya Like A Sister', cursive;
   text-shadow: 3px 3px 3px #eb5e55;
-  padding-top: 50px;
-  padding-bottom: 30px;
 }
 #question-choices h4 {
   /* width: auto; */
+  font-size: 25px;
   display: flex;
   color: #ffffff;
   text-shadow: 3px 3px 2px #474747;
