@@ -12,19 +12,20 @@ class Fish extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.score !== prevProps.score) {
-      console.log(this.props.score)
       for (let i = 0; i < this.props.score; i++) {
         const time = Math.round(Math.random() * i) * 10
-        this.state.arr.push(
-          <span key={time} style={{animationDuration: `${time}s`}} />
-        )
+        this.setState({
+          arr: [
+            ...this.state.arr,
+            <span key={time} style={{animationDuration: `${time}s`}} />
+          ]
+        })
       }
     }
   }
 
   render() {
     const {arr} = this.state
-
     return (
       <div className="animationContainer">
         <div className="sun" />
