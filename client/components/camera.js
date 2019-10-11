@@ -7,6 +7,7 @@ import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
 import {connect} from 'react-redux'
 import {gotQuestion, getScore} from '../store'
+import {Redirect} from 'react-router-dom'
 import {ToastsContainer, ToastsStore} from 'react-toasts'
 
 // let percentage = 0
@@ -96,6 +97,7 @@ class Camera extends React.Component {
       let userAnswer = this.state.answer
       if (correctAnswer === userAnswer && !this.state.check) {
         this.setState({score: this.state.score + 5, check: true})
+
         ToastsStore.success('GREAT JOB! B is the correct answer.')
       } else {
         this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
@@ -165,10 +167,17 @@ class Camera extends React.Component {
     this.canvas = element
   }
 
+  renderRedirect = () => {
+    if (this.state.wrongAnswer >= 9) {
+      return <Redirect to="/gameover" />
+    }
+  }
+
   render() {
     const {cameraSet} = this.state
     return (
       <div className="camera">
+        {this.renderRedirect()}
         <ToastsContainer className="toasts" store={ToastsStore} />
         {cameraSet ? (
           <div id="answer-circle-container">
