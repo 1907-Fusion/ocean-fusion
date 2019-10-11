@@ -97,6 +97,7 @@ class Camera extends React.Component {
       let userAnswer = this.state.answer
       if (correctAnswer === userAnswer && !this.state.check) {
         this.setState({score: this.state.score + 5, check: true})
+
         ToastsStore.success('GREAT JOB! B is the correct answer.')
       } else {
         this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
@@ -167,7 +168,8 @@ class Camera extends React.Component {
   }
 
   renderRedirect = () => {
-    if (this.state.wrongAnswer >= 3) {
+
+    if (this.state.wrongAnswer >= 9) {
       return <Redirect to="/gameover" />
     }
   }
