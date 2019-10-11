@@ -31,8 +31,8 @@ class Routes extends Component {
             <Route path="/victory" component={Victory} />
           </Switch>
         )}
-        {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
+        {/* Displays our Main component as a fallback */}
+        <Route component={Main} />
       </Switch>
     )
   }

@@ -74,7 +74,7 @@ const user = (state = initialState, action) => {
     case GET_USER:
       return action.user
     case REMOVE_USER:
-      return state.defaultUser
+      return {...state, defaultUser: action.defaultUser}
     case SET_SCORE:
       return {...state, score: action.score}
     default:

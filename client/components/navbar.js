@@ -22,7 +22,7 @@ const Navbar = ({handleClick, isLoggedIn, name, score}) => (
                 New Game
               </button>
             </Link>
-            <Link to="/logout" onClick={handleClick}>
+            <Link to="/" onClick={handleClick}>
               <button className="button" type="button">
                 Logout
               </button>
