@@ -14,7 +14,7 @@ const Question = db.define('question', {
   },
   pointValue: {
     type: Sequelize.INTEGER,
-    defaultValue: 200
+    defaultValue: 5
   },
   explanation: {
     type: Sequelize.TEXT

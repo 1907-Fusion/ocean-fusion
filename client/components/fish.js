@@ -24,13 +24,14 @@ class Fish extends React.Component {
   // }
 
   render() {
+    let count = 0
     const {score} = this.props
     const fishes = new Array(score).fill(0).map(x => {
+      count++
       const time = Math.round(Math.random() * 5)
-      return <span key={time} style={{animationDuration: `${time}s`}} />
+      return <span key={count} style={{animationDuration: `${time}s`}} />
     })
 
-    console.log('THIS IS FISHES', fishes)
     return (
       <div className="animationContainer">
         <div className="sun" />

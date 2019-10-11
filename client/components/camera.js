@@ -77,7 +77,7 @@ class Camera extends React.Component {
 
     setTimeout(() => {
       this.detectPose()
-    }, 100)
+    }, 300)
   }
 
   gotPoses(poses) {
@@ -89,26 +89,24 @@ class Camera extends React.Component {
     let leftWY = poses.keypoints[9].position.y
     if (
       leftWX > 0 &&
-      leftWX < width * 0.2 &&
-      (leftWY > 0 && leftWY < height * 0.2)
+      leftWX < width * 0.3 &&
+      (leftWY > 0 && leftWY < height * 0.3)
     ) {
       this.setState({answer: 'B'})
       let correctAnswer = this.props.question.answer
       let userAnswer = this.state.answer
       if (correctAnswer === userAnswer && !this.state.check) {
         this.setState({score: this.state.score + 5, check: true})
-
         ToastsStore.success('GREAT JOB! B is the correct answer.')
       } else {
-        this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
-        console.log('THIS IS THE WRONG ANSWER COUNT', this.state.wrongAnswer)
+        this.setState({wrongAnswer: this.state.wrongAnswer + 1})
         ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
     if (
-      rightWX > width * 0.8 &&
+      rightWX > width * 0.7 &&
       rightWX < width &&
-      (rightWY > 0 && rightWY < height * 0.2)
+      (rightWY > 0 && rightWY < height * 0.3)
     ) {
       this.setState({answer: 'A'})
       let correctAnswer = this.props.question.answer
@@ -118,15 +116,14 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + 5, check: true})
         ToastsStore.success('A is the correct answer')
       } else {
-        this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
-        console.log('THIS IS THE WRONG ANSWER COUNT', this.state.wrongAnswer)
+        this.setState({wrongAnswer: this.state.wrongAnswer + 1})
         ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
     if (
       leftWX > 0 &&
-      leftWX < width * 0.2 &&
-      (leftWY > height * 0.8 && leftWY < height)
+      leftWX < width * 0.3 &&
+      (leftWY > height * 0.7 && leftWY < height)
     ) {
       this.setState({answer: 'D'})
       let correctAnswer = this.props.question.answer
@@ -135,26 +132,23 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + 5, check: true})
         ToastsStore.success('GREAT JOB! D is the correct answer.')
       } else {
-        this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
-        console.log('THIS IS THE WRONG ANSWER COUNT', this.state.wrongAnswer)
+        this.setState({wrongAnswer: this.state.wrongAnswer + 1})
         ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
     if (
-      rightWX > width * 0.8 &&
+      rightWX > width * 0.7 &&
       rightWX < width &&
-      (rightWY > height * 0.8 && rightWY < height)
+      (rightWY > height * 0.7 && rightWY < height)
     ) {
       this.setState({answer: 'C'})
       let correctAnswer = this.props.question.answer
       let userAnswer = this.state.answer
-      console.log('B', userAnswer, correctAnswer)
       if (correctAnswer === userAnswer && !this.state.check) {
         this.setState({score: this.state.score + 5, check: true})
         ToastsStore.success('YOU GOT IT! C is the correct answer.')
       } else {
-        this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
-        console.log('THIS IS THE WRONG ANSWER COUNT', this.state.wrongAnswer)
+        this.setState({wrongAnswer: this.state.wrongAnswer + 1})
         ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
