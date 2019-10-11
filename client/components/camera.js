@@ -168,6 +168,7 @@ class Camera extends React.Component {
   }
 
   renderRedirect = () => {
+
     if (this.state.wrongAnswer >= 9) {
       return <Redirect to="/gameover" />
     }

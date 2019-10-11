@@ -19,7 +19,7 @@ class Main extends React.Component {
           <h1>Let's Play Ocean Fusion</h1>
           <h3>🌎 Do you know how to save the world? We'll ask a question...</h3>
           <h3>
-            👋 <b>WAVE YOUR HAND</b> over your answer!
+            👋 <b>WAVE YOUR WRIST</b> over your answer!
           </h3>
           <h3>🐟 If you pick the right answer, more fish will appear!</h3>
           <h3>
@@ -27,7 +27,7 @@ class Main extends React.Component {
           </h3>
           <h3>😵 It's GAME OVER if all the fish are gone!</h3>
 
-          <h4>Can you save the world in 5 minutes?</h4>
+          <h4>Can you save the world in 1 minute?</h4>
           <Button className="button" id="mainPageBtn">
             <Link to="/login">Play Game</Link>
           </Button>
