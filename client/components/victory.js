@@ -6,12 +6,12 @@ class Victory extends React.Component {
   render() {
     return (
       <div className="victory">
-        <div className="victory-text ">
+        <div className="victory-text">
           <h1 className="t">YOU WON!</h1>
           <h4>Want to try again? Click the button below.</h4>
         </div>
         <Button className="button" id="mainPageBtn">
-          <Link to="/game">Start Over</Link>
+          <Link to="/game">Play Again</Link>
         </Button>
         <div id="background-wrap">
           <div className="bubble x1" />
