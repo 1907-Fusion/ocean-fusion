@@ -42,7 +42,7 @@ class Camera extends React.Component {
   setupTimer() {
     this.elapsedTime = 0
     this.timer = setInterval(() => {
-      if (this.elapsedTime > 20) {
+      if (this.elapsedTime > 60) {
         this.setState({
           ...this.state,
           gameEnded: true
