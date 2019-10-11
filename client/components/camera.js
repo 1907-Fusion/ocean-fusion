@@ -20,7 +20,8 @@ class Camera extends React.Component {
       videoWidth: window.innerWidth * 0.5,
       answer: '',
       score: 0,
-      check: false
+      check: false,
+      wrongAnswer: 0
     }
   }
   async componentDidMount() {
@@ -36,7 +37,6 @@ class Camera extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.state.score)
     if (this.state.score !== prevState.score) {
       this.setState({check: false})
       this.props.getScore(this.state.score)
@@ -94,10 +94,13 @@ class Camera extends React.Component {
       this.setState({answer: 'B'})
       let correctAnswer = this.props.question.answer
       let userAnswer = this.state.answer
-      console.log('B', userAnswer, correctAnswer)
       if (correctAnswer === userAnswer && !this.state.check) {
         this.setState({score: this.state.score + 5, check: true})
-        ToastsStore.success('B is the correct answer')
+        ToastsStore.success('GREAT JOB! B is the correct answer.')
+      } else {
+        this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
+        console.log('THIS IS THE WRONG ANSWER COUNT', this.state.wrongAnswer)
+        ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
     if (
@@ -112,6 +115,10 @@ class Camera extends React.Component {
       if (correctAnswer === userAnswer && !this.state.check) {
         this.setState({score: this.state.score + 5, check: true})
         ToastsStore.success('A is the correct answer')
+      } else {
+        this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
+        console.log('THIS IS THE WRONG ANSWER COUNT', this.state.wrongAnswer)
+        ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
     if (
@@ -122,10 +129,13 @@ class Camera extends React.Component {
       this.setState({answer: 'D'})
       let correctAnswer = this.props.question.answer
       let userAnswer = this.state.answer
-      console.log('B', userAnswer, correctAnswer)
       if (correctAnswer === userAnswer && !this.state.check) {
         this.setState({score: this.state.score + 5, check: true})
-        ToastsStore.success('D is the correct answer')
+        ToastsStore.success('GREAT JOB! D is the correct answer.')
+      } else {
+        this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
+        console.log('THIS IS THE WRONG ANSWER COUNT', this.state.wrongAnswer)
+        ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
     if (
@@ -139,7 +149,11 @@ class Camera extends React.Component {
       console.log('B', userAnswer, correctAnswer)
       if (correctAnswer === userAnswer && !this.state.check) {
         this.setState({score: this.state.score + 5, check: true})
-        ToastsStore.success('C is the correct answer')
+        ToastsStore.success('YOU GOT IT! C is the correct answer.')
+      } else {
+        this.setState({wrongAnswer: this.state.wrongAnswer + 1, check: true})
+        console.log('THIS IS THE WRONG ANSWER COUNT', this.state.wrongAnswer)
+        ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
   }
