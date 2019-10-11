@@ -16,7 +16,6 @@ class Camera extends React.Component {
     super(props)
     this.state = {
       cameraSet: false,
-      // waterFilter: {},
       videoHeight: window.innerHeight * 0.8,
       videoWidth: window.innerWidth * 0.5,
       answer: '',
@@ -93,7 +92,6 @@ class Camera extends React.Component {
       (leftWY > 0 && leftWY < height * 0.2)
     ) {
       this.setState({answer: 'B'})
-      console.log('B')
       let correctAnswer = this.props.question.answer
       let userAnswer = this.state.answer
       console.log('B', userAnswer, correctAnswer)
@@ -108,7 +106,6 @@ class Camera extends React.Component {
       (rightWY > 0 && rightWY < height * 0.2)
     ) {
       this.setState({answer: 'A'})
-      console.log('A')
       let correctAnswer = this.props.question.answer
       let userAnswer = this.state.answer
       console.log('A', userAnswer, correctAnswer)
@@ -123,7 +120,6 @@ class Camera extends React.Component {
       (leftWY > height * 0.8 && leftWY < height)
     ) {
       this.setState({answer: 'D'})
-      console.log('D')
       let correctAnswer = this.props.question.answer
       let userAnswer = this.state.answer
       console.log('B', userAnswer, correctAnswer)
@@ -138,7 +134,6 @@ class Camera extends React.Component {
       (rightWY > height * 0.8 && rightWY < height)
     ) {
       this.setState({answer: 'C'})
-      console.log('C')
       let correctAnswer = this.props.question.answer
       let userAnswer = this.state.answer
       console.log('B', userAnswer, correctAnswer)
@@ -187,14 +182,12 @@ class Camera extends React.Component {
           autoPlay={true}
           ref={this.getVideo}
         />
-        {/* <div style={waterFilter} /> */}
         <canvas className="canvas" ref={this.getCanvas} />
       </div>
     )
   }
 }
 const mapStateToProps = state => {
-  console.log(state)
   return {
     question: state.question
   }
