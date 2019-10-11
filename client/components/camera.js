@@ -7,6 +7,7 @@ import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
 import {connect} from 'react-redux'
 import {gotQuestion, getScore} from '../store'
+import {Redirect} from 'react-router-dom'
 import {ToastsContainer, ToastsStore} from 'react-toasts'
 
 // let percentage = 0
@@ -165,10 +166,17 @@ class Camera extends React.Component {
     this.canvas = element
   }
 
+  renderRedirect = () => {
+    if (this.state.wrongAnswer >= 3) {
+      return <Redirect to="/gameover" />
+    }
+  }
+
   render() {
     const {cameraSet} = this.state
     return (
       <div className="camera">
+        {this.renderRedirect()}
         <ToastsContainer className="toasts" store={ToastsStore} />
         {cameraSet ? (
           <div id="answer-circle-container">
