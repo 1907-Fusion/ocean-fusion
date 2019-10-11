@@ -30,6 +30,7 @@ class Fish extends React.Component {
       return <span key={time} style={{animationDuration: `${time}s`}} />
     })
 
+    console.log('THIS IS FISHES', fishes)
     return (
       <div className="animationContainer">
         <div className="sun" />

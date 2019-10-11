@@ -149,10 +149,19 @@ form div {
 
 .mainPage {
   display: flex;
-  /* background: linear-gradient(to left, rgb(181, 240, 250), #79f3f7); */
   height: 95vh;
   overflow-y: hidden;
-  /* background: linear-gradient(to right, #C4E0E5, #4CA1AF); */
+}
+
+.game-over {
+  margin-top: 2%;
+  text-align: center;
+}
+.game-over {
+  filter: url('#turbulence');
+}
+.game-over h1 {
+  font-size: 15em;
 }
 
 .summary {
