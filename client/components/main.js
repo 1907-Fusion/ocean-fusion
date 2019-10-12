@@ -1,6 +1,8 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+
 class Main extends React.Component {
   constructor() {
     super()
@@ -8,6 +10,7 @@ class Main extends React.Component {
   }
 
   render() {
+    console.log()
     return (
       <div className="mainPage">
         <img
@@ -29,7 +32,7 @@ class Main extends React.Component {
 
           <h4>Can you save the world in 1 minute?</h4>
           <Button className="button" id="mainPageBtn">
-            <Link to="/login">Play Game</Link>
+            <Link to={this.props.email ? '/game' : '/login'}>Play Game</Link>
           </Button>
         </div>
       </div>
@@ -37,4 +40,10 @@ class Main extends React.Component {
   }
 }
 
-export default Main
+const mapStateToProps = state => {
+  return {
+    email: state.user.email
+  }
+}
+
+export default connect(mapStateToProps, null)(Main)
