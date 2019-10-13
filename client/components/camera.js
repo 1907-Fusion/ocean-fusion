@@ -10,8 +10,6 @@ import {gotQuestion, getScore} from '../store'
 import {Redirect} from 'react-router-dom'
 import {ToastsContainer, ToastsStore} from 'react-toasts'
 
-// let percentage = 0
-
 class Camera extends React.Component {
   constructor(props) {
     super(props)
@@ -22,7 +20,8 @@ class Camera extends React.Component {
       answer: '',
       score: 0,
       check: false,
-      wrongAnswer: 0
+      wrongAnswer: 0,
+      gameEnded: false
     }
   }
   async componentDidMount() {
@@ -35,6 +34,20 @@ class Camera extends React.Component {
     })
 
     await this.setupCamera()
+    this.setupTimer()
+  }
+
+  setupTimer() {
+    this.elapsedTime = 0
+    this.timer = setInterval(() => {
+      if (this.elapsedTime > 60) {
+        this.setState({
+          ...this.state,
+          gameEnded: true
+        })
+      }
+      this.elapsedTime = this.elapsedTime + 1
+    }, 1000)
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -162,14 +175,20 @@ class Camera extends React.Component {
   }
 
   renderRedirect = () => {
-
     if (this.state.wrongAnswer >= 9) {
       return <Redirect to="/gameover" />
     }
   }
 
   render() {
-    const {cameraSet} = this.state
+    const {cameraSet, gameEnded} = this.state
+    if (gameEnded) {
+      if (this.state.score > 0) {
+        return <Redirect to="/victory" />
+      } else {
+        return <Redirect to="/gameover" />
+      }
+    }
     return (
       <div className="camera">
         {this.renderRedirect()}
