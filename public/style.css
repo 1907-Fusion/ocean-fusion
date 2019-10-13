@@ -217,8 +217,12 @@ form div {
   text-align: center;
   margin-right: 10px;
 }
-.loading > h1 {
-  padding-bottom: 50px;
+#loading-top {
+  padding: 40px;
+}
+#loading-bottom {
+  padding: 20px;
+  bottom: 0px;
 }
 
 .camera {
@@ -266,6 +270,7 @@ form div {
   height: 180px;
   justify-content: center;
   flex-direction: column;
+  position: absolute;
   text-align: center;
   width: 180px;
   vertical-align: middle;
@@ -278,28 +283,24 @@ form div {
 #answer-circle-a {
   background-image: radial-gradient(circle at 50%, #fff 50%, #f5de19);
   box-shadow: 0px 0px 40px #f5de19, inset 0px 0px 100px #f5de19;
-  position: absolute;
   left: 1vw;
   top: 11vh;
 }
 #answer-circle-b {
   background-image: radial-gradient(circle at 50%, #fff 50%, lightblue);
   box-shadow: 0px 0px 40px lightblue, inset 0px 0px 100px lightblue;
-  position: absolute;
   top: 11vh;
   left: 40vw;
 }
 #answer-circle-c {
   background-image: radial-gradient(circle at 50%, #fff 50%, #44882d);
   box-shadow: 0px 0px 40px #44882d, inset 0px 0px 100px #44882d;
-  position: absolute;
   left: 1vw;
   top: 65vh;
 }
 #answer-circle-d {
   background-image: radial-gradient(circle at 50%, #fff 50%, #145c9e);
   box-shadow: 0px 0px 40px #145c9e, inset 0px 0px 100px #145c9e;
-  position: absolute;
   left: 40vw;
   top: 65vh;
 }

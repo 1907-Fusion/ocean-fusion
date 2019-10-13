@@ -20,15 +20,19 @@ class Main extends React.Component {
         />
         <div className="summary">
           <h1>Let's Play Ocean Fusion</h1>
-          <h3>🌎 Do you know how to save the world? We'll ask a question...</h3>
+          <h3>
+            🌎 Do you know how to save our oceans? We'll ask a question...
+          </h3>
           <h3>
             👋 <b>WAVE YOUR WRIST</b> over your answer!
           </h3>
           <h3>🐟 If you pick the right answer, more fish will appear!</h3>
           <h3>
-            🎣 If you pick the wrong answer, the ocean's fish will disappear...
+            😵 It's GAME OVER if you get <b>9 WRONG ANSWERS</b>
           </h3>
-          <h3>😵 It's GAME OVER if all the fish are gone!</h3>
+          <h3>
+            ⏲️ If you can keep the fish alive for <b>1 minute</b>, you win!
+          </h3>
 
           <h4>Can you save the world in 1 minute?</h4>
           <Button className="button" id="mainPageBtn">
