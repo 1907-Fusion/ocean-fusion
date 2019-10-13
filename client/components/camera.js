@@ -10,8 +10,6 @@ import {gotQuestion, getScore} from '../store'
 import {Redirect} from 'react-router-dom'
 import {ToastsContainer, ToastsStore} from 'react-toasts'
 
-// let percentage = 0
-
 class Camera extends React.Component {
   constructor(props) {
     super(props)
