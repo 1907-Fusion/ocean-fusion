@@ -334,7 +334,7 @@ form div {
 .clouds {
   position: absolute;
   right: 0;
-  bottom: 35vh;
+  bottom: 30vh;
   left: 0;
   opacity: 0.5;
 }
@@ -744,15 +744,6 @@ form div {
       3% 39%
     );
   }
-}
-body {
-  background: #90eff2;
-  color: #333;
-  font: 100% Lato, Arial, Sans Serif;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 #background-wrap {
