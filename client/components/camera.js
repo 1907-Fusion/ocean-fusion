@@ -86,7 +86,7 @@ class Camera extends React.Component {
 
     setTimeout(() => {
       this.detectPose()
-    }, 100)
+    }, 700)
   }
 
   gotPoses(poses) {
