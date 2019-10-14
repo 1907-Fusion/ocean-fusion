@@ -29,7 +29,7 @@ describe('Question model', () => {
       expect(questionTest.content).to.equal('some good stuff')
       expect(Array.isArray(questionTest.choices)).to.equal(true)
       expect(questionTest.answer).to.equal('a')
-      expect(questionTest.pointValue).to.equal(200)
+      expect(questionTest.pointValue).to.equal(5)
     })
   })
 })

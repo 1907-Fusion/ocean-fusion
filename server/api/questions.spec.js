@@ -30,15 +30,6 @@ describe('Question routes', () => {
       })
     })
 
-    it('GET /api/questions', async () => {
-      const res = await request(app)
-        .get('/api/questions')
-        .expect(200)
-
-      expect(res.body).to.be.an('array')
-      expect(res.body[0].content).to.be.equal(testContent)
-    })
-
     it('GET /api/questions/random', async () => {
       const res = await request(app)
         .get('/api/questions/random')
