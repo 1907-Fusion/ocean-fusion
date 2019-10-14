@@ -17,13 +17,13 @@ const Navbar = ({handleClick, isLoggedIn, name, score}) => (
           </div>
           <div id="nav-right" style={{display: 'flex'}}>
             <h3 style={{color: 'white'}}>Hello, {name}</h3>
-            <Link to="/game">
-              <button className="button" type="button">
+            <Link to="/game" style={{padding: '18px'}}>
+              <button className="button" type="button" style={{height: '30px'}}>
                 New Game
               </button>
             </Link>
-            <Link to="/" onClick={handleClick}>
-              <button className="button" type="button">
+            <Link to="/" onClick={handleClick} style={{paddingRight: '16px'}}>
+              <button className="button" type="button" style={{height: '30px'}}>
                 Logout
               </button>
             </Link>
@@ -38,13 +38,6 @@ const Navbar = ({handleClick, isLoggedIn, name, score}) => (
               <h1>Ocean Fusion</h1>
             </Link>
           </div>
-          {/* <div id="nav-right">
-            <Link to="/login">
-              <button className="button" type="button">
-                Play Game
-              </button>
-            </Link>
-          </div> */}
         </div>
       )}
     </nav>

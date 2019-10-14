@@ -40,8 +40,6 @@ label {
 nav a {
   align-items: center;
   display: flex;
-  padding-left: 2em;
-  padding-right: 2em;
 }
 
 form div {
@@ -90,7 +88,6 @@ form div {
   color: #fff;
   background-color: #eb5e55;
   box-shadow: 10px 5px 5px #199999;
-  /* background-color: #ffad33; */
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(0, 0, 0, 0.5);
   border: 0px;
