@@ -90,7 +90,7 @@ class Camera extends React.Component {
 
     setTimeout(() => {
       this.detectPose()
-    }, 300)
+    }, 200)
   }
 
   gotPoses(poses) {
@@ -100,20 +100,24 @@ class Camera extends React.Component {
     let rightWY = poses.keypoints[10].position.y
     let leftWX = poses.keypoints[9].position.x
     let leftWY = poses.keypoints[9].position.y
+    let points = this.props.question.pointValue
+    let correctAnswer = this.props.question.answer
+    let userAnswer = this.state.answer
     if (
       leftWX > 0 &&
       leftWX < width * 0.3 &&
       (leftWY > 0 && leftWY < height * 0.3)
     ) {
       this.setState({answer: 'B'})
-      let correctAnswer = this.props.question.answer
-      let userAnswer = this.state.answer
       if (correctAnswer === userAnswer && !this.state.check) {
-        this.setState({score: this.state.score + 5, check: true})
+        this.setState({score: this.state.score + points, check: true})
         ToastsStore.success('GREAT JOB! B is the correct answer.')
       } else {
         this.setState({wrongAnswer: this.state.wrongAnswer + 1})
-        ToastsStore.success('OOPS! WRONG ANSWER!')
+        ToastsStore.error(
+          `OOPS! WRONG ANSWER! You have this many more tries to answer incorrectly before it's game over: ${9 -
+            this.state.wrongAnswer}`
+        )
       }
     }
     if (
@@ -122,15 +126,15 @@ class Camera extends React.Component {
       (rightWY > 0 && rightWY < height * 0.3)
     ) {
       this.setState({answer: 'A'})
-      let correctAnswer = this.props.question.answer
-      let userAnswer = this.state.answer
-      console.log('A', userAnswer, correctAnswer)
       if (correctAnswer === userAnswer && !this.state.check) {
-        this.setState({score: this.state.score + 5, check: true})
+        this.setState({score: this.state.score + points, check: true})
         ToastsStore.success('A is the correct answer')
       } else {
         this.setState({wrongAnswer: this.state.wrongAnswer + 1})
-        ToastsStore.success('OOPS! WRONG ANSWER!')
+        ToastsStore.error(
+          `OOPS! WRONG ANSWER! You have this many more tries to answer incorrectly before it's game over: ${9 -
+            this.state.wrongAnswer}`
+        )
       }
     }
     if (
@@ -139,14 +143,15 @@ class Camera extends React.Component {
       (leftWY > height * 0.7 && leftWY < height)
     ) {
       this.setState({answer: 'D'})
-      let correctAnswer = this.props.question.answer
-      let userAnswer = this.state.answer
       if (correctAnswer === userAnswer && !this.state.check) {
-        this.setState({score: this.state.score + 5, check: true})
+        this.setState({score: this.state.score + points, check: true})
         ToastsStore.success('GREAT JOB! D is the correct answer.')
       } else {
         this.setState({wrongAnswer: this.state.wrongAnswer + 1})
-        ToastsStore.success('OOPS! WRONG ANSWER!')
+        ToastsStore.error(
+          `OOPS! WRONG ANSWER! You have this many more tries to answer incorrectly before it's game over: ${9 -
+            this.state.wrongAnswer}`
+        )
       }
     }
     if (
@@ -155,14 +160,15 @@ class Camera extends React.Component {
       (rightWY > height * 0.7 && rightWY < height)
     ) {
       this.setState({answer: 'C'})
-      let correctAnswer = this.props.question.answer
-      let userAnswer = this.state.answer
       if (correctAnswer === userAnswer && !this.state.check) {
-        this.setState({score: this.state.score + 5, check: true})
+        this.setState({score: this.state.score + points, check: true})
         ToastsStore.success('YOU GOT IT! C is the correct answer.')
       } else {
         this.setState({wrongAnswer: this.state.wrongAnswer + 1})
-        ToastsStore.success('OOPS! WRONG ANSWER!')
+        ToastsStore.error(
+          `OOPS! WRONG ANSWER! You have this many more tries to answer incorrectly before it's game over: ${9 -
+            this.state.wrongAnswer}`
+        )
       }
     }
   }
