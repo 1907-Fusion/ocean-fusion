@@ -8,7 +8,8 @@ import Loading from './loading'
 import {connect} from 'react-redux'
 import {gotQuestion, scoreIsSet} from '../store'
 import {Redirect} from 'react-router-dom'
-import {ToastsContainer, ToastsStore} from 'react-toasts'
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 class Camera extends React.Component {
   constructor(props) {
@@ -87,6 +88,30 @@ class Camera extends React.Component {
     }, 100)
   }
 
+  notifyCorrect = choice => {
+    toast.info(`'GREAT JOB! ${choice} is the correct answer.'`, {
+      position: 'top-right',
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      rtl: false,
+      pauseOnVisibilityChange: false,
+      draggable: false,
+      pauseOnHover: true
+    })
+  }
+
+  notifyWrong = () => {
+    toast.error(`OOPS! Wrong Answer`, {
+      position: 'bottom-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false
+    })
+  }
+
   gotPoses(poses) {
     let width = this.state.videoWidth
     let height = this.state.videoHeight
@@ -107,7 +132,7 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + points})
         ToastsStore.success('GREAT JOB! B is the correct answer.')
       } else {
-        ToastsStore.error('OOPS! WRONG ANSWER!')
+        this.notifyWrong()
       }
     }
     if (
@@ -120,7 +145,7 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + points})
         ToastsStore.success('AWESOME! A is the correct answer.')
       } else {
-        ToastsStore.error('OOPS! WRONG ANSWER!')
+        this.notifyWrong()
       }
     }
     if (
@@ -133,7 +158,7 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + points})
         ToastsStore.success('GREAT JOB! D is the correct answer.')
       } else {
-        ToastsStore.error('OOPS! WRONG ANSWER!')
+        this.notifyWrong()
       }
     }
     if (
@@ -146,7 +171,7 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + points})
         ToastsStore.success('YOU GOT IT! C is the correct answer.')
       } else {
-        ToastsStore.error('OOPS! WRONG ANSWER!')
+        this.notifyWrong()
       }
     }
   }
@@ -169,7 +194,11 @@ class Camera extends React.Component {
     }
     return (
       <div className="camera">
-        <ToastsContainer className="toasts" store={ToastsStore} />
+        <div id="toast-container">
+          <div className="toast-container" id="toast-container">
+            <ToastContainer />
+          </div>
+        </div>
         {cameraSet ? (
           <div id="answer-circle-container">
             <div className="answer-circle" id="answer-circle-a">
