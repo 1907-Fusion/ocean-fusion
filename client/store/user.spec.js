@@ -11,11 +11,11 @@ import history from '../history'
 const middlewares = [thunkMiddleware]
 const mockStore = configureMockStore(middlewares)
 
-describe('thunk creators', () => {
+describe('thunk creators for user reducer', () => {
   let store
   let mockAxios
 
-  const initialState = {user: {}}
+  const initialState = {}
 
   beforeEach(() => {
     mockAxios = new MockAdapter(axios)
