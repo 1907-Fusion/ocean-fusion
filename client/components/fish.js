@@ -3,13 +3,11 @@ import {connect} from 'react-redux'
 
 class Fish extends React.Component {
   render() {
-    let count = 0
     const {score} = this.props
-    const fishes = new Array(score).fill(0).map(x => {
-      count++
-      const time = Math.round(Math.random() * 5)
-      return <span key={count} style={{animationDuration: `${time}s`}} />
-    })
+    // const fishes = new Array(5).fill(0).map((x, index) => {
+    //   const time = Math.round(Math.random() * 10)
+    //   return <span key={index} style={{animationDuration: `${time}s`}} />
+    // })
 
     return (
       <div className="animationContainer">
@@ -23,7 +21,19 @@ class Fish extends React.Component {
         <div className="sea">
           <div className="wave w-1" />
           <div className="wave w-2" />
-          <div className="fish">{fishes}</div>
+          <div className="fish">
+            {score > 0 ? (
+              <div>
+                <span style={{animationDuration: '5s'}} />
+                <span style={{animationDuration: '9s'}} />
+                <span style={{animationDuration: '8s'}} />
+                <span style={{animationDuration: '10s'}} />
+                <span style={{animationDuration: '7s'}} />
+              </div>
+            ) : (
+              ''
+            )}
+          </div>
         </div>
         <div className="bottom">
           <div className="grass">
