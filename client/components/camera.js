@@ -43,8 +43,11 @@ class Camera extends React.Component {
       if (this.elapsedTime > 60) {
         this.setState({gameEnded: true})
       }
+      if (this.elapsedTime === 50) {
+        this.notifyTime(10)
+      }
       if (this.elapsedTime === 30) {
-        //need to do toastify
+        this.notifyTime(30)
       }
       this.elapsedTime = this.elapsedTime + 1
     }, 1000)
@@ -92,11 +95,22 @@ class Camera extends React.Component {
       this.detectPose()
     }, 100)
   }
-
+  notifyTime = time => {
+    toast.success(`You have ${time} seconds!!!`, {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      rtl: false,
+      pauseOnVisibilityChange: false,
+      draggable: false,
+      pauseOnHover: true
+    })
+  }
   notifyCorrect = choice => {
     toast.info(`'GREAT JOB! ${choice} is the correct answer.'`, {
       position: 'top-right',
-      autoClose: 4000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       rtl: false,
@@ -109,7 +123,7 @@ class Camera extends React.Component {
   notifyWrong = () => {
     toast.error(`OOPS! Wrong Answer`, {
       position: 'bottom-right',
-      autoClose: 5000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
