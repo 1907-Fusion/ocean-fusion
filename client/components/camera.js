@@ -6,7 +6,7 @@ import * as posenet from '@tensorflow-models/posenet'
 import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
 import {connect} from 'react-redux'
-import {gotQuestion, getScore} from '../store'
+import {gotQuestion, gotScore} from '../store'
 import {Redirect} from 'react-router-dom'
 import {ToastsContainer, ToastsStore} from 'react-toasts'
 
@@ -41,10 +41,7 @@ class Camera extends React.Component {
     this.elapsedTime = 0
     this.timer = setInterval(() => {
       if (this.elapsedTime > 60) {
-        this.setState({
-          ...this.state,
-          gameEnded: true
-        })
+        this.setState({gameEnded: true})
       }
       this.elapsedTime = this.elapsedTime + 1
     }, 1000)
@@ -232,13 +229,14 @@ class Camera extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    question: state.question
+    question: state.question,
+    score: state.score
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   getQuestion: () => dispatch(gotQuestion()),
-  getScore: scores => dispatch(getScore(scores))
+  getScore: score => dispatch(gotScore(score))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Camera)

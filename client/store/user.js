@@ -6,30 +6,21 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
-const SET_SCORE = 'SET_SCORE'
 
 /**
  * INITIAL STATE
  */
-const initialState = {
-  score: 0,
-  defaultUser: {}
-}
+const initialState = {}
 
 /**
  * ACTION CREATORS
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
-const setScore = score => ({type: SET_SCORE, score})
 
 /**
  * THUNK CREATORS
  */
-
-export const getScore = score => async dispatch => {
-  await dispatch(setScore(score))
-}
 
 export const me = () => async dispatch => {
   try {
@@ -75,8 +66,6 @@ const user = (state = initialState, action) => {
       return action.user
     case REMOVE_USER:
       return initialState
-    case SET_SCORE:
-      return {...state, score: action.score}
     default:
       return state
   }

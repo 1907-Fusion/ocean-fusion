@@ -38,13 +38,6 @@ const Navbar = ({handleClick, isLoggedIn, name, score}) => (
               <h1>Ocean Fusion</h1>
             </Link>
           </div>
-          {/* <div id="nav-right">
-            <Link to="/login">
-              <button className="button" type="button">
-                Play Game
-              </button>
-            </Link>
-          </div> */}
         </div>
       )}
     </nav>
@@ -58,7 +51,7 @@ const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
     name: state.user.email,
-    score: state.user.score
+    score: state.score
   }
 }
 

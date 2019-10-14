@@ -34,3 +34,12 @@ router.get('/random', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    const question = await Question.findByPk(req.params.id)
+    res.json(question)
+  } catch (err) {
+    next(err)
+  }
+})
