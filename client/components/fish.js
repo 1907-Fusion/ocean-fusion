@@ -4,10 +4,6 @@ import {connect} from 'react-redux'
 class Fish extends React.Component {
   render() {
     const {score} = this.props
-    // const fishes = new Array(5).fill(0).map((x, index) => {
-    //   const time = Math.round(Math.random() * 10)
-    //   return <span key={index} style={{animationDuration: `${time}s`}} />
-    // })
 
     return (
       <div className="animationContainer">
