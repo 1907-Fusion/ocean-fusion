@@ -259,7 +259,11 @@ form div {
 #choice-d {
   display: flex;
 }
-
+/*TOAST CONTAINER*/
+.toast-container {
+  text-shadow: 3px 4px 2px #474747;
+  font-size: 25px;
+}
 /* ANSWER CHOICE CIRCLES ON CAMERA */
 
 .answer-circle {
