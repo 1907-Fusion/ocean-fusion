@@ -304,17 +304,15 @@ form div {
   top: 65vh;
 }
 
+/* FISH ANIMATIONS */
+
 .fishTank {
   border-radius: 24px;
   margin: 14px;
   height: 40vh;
   overflow: hidden;
-  /* font-family: 'Libre Franklin', sans-serif; */
-  /* font-size: 62.5%; */
   background-image: linear-gradient(0deg, #e8f4f8, lightblue);
 }
-
-/* @import url('https://fonts.googleapis.com/css?family=Libre+Franklin'); */
 
 .animationContainer {
   position: relative;
@@ -336,7 +334,7 @@ form div {
 .clouds {
   position: absolute;
   right: 0;
-  bottom: 35vh;
+  bottom: 30vh;
   left: 0;
   opacity: 0.5;
 }
@@ -746,15 +744,6 @@ form div {
       3% 39%
     );
   }
-}
-body {
-  background: #90eff2;
-  color: #333;
-  font: 100% Lato, Arial, Sans Serif;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 #background-wrap {

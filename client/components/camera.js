@@ -3,7 +3,6 @@
 /* eslint-disable complexity */
 import React from 'react'
 import * as posenet from '@tensorflow-models/posenet'
-import 'p5/lib/addons/p5.dom'
 import Loading from './loading'
 import {connect} from 'react-redux'
 import {gotQuestion, scoreIsSet} from '../store'
