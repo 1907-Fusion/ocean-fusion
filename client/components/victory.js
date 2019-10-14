@@ -1,8 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Button} from 'react-bootstrap'
+import {connect} from 'react-redux'
+import {scoreReset} from '../store'
 
 class Victory extends React.Component {
+  componentDidMount() {
+    this.props.resetScore()
+  }
+
   render() {
     return (
       <div className="victory">
@@ -38,4 +44,8 @@ class Victory extends React.Component {
   }
 }
 
-export default Victory
+const mapDispatchToProps = dispatch => ({
+  resetScore: () => dispatch(scoreReset())
+})
+
+export default connect(null, mapDispatchToProps)(Victory)
