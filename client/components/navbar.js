@@ -58,7 +58,7 @@ const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
     name: state.user.email,
-    score: state.user.score
+    score: state.score
   }
 }
 

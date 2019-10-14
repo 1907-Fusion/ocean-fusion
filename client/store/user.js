@@ -6,35 +6,26 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
-const SET_SCORE = 'SET_SCORE'
 
 /**
  * INITIAL STATE
  */
-const initialState = {
-  score: 0,
-  defaultUser: {}
-}
+const defaultUser = {}
 
 /**
  * ACTION CREATORS
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
-const setScore = score => ({type: SET_SCORE, score})
 
 /**
  * THUNK CREATORS
  */
 
-export const getScore = score => async dispatch => {
-  await dispatch(setScore(score))
-}
-
 export const me = () => async dispatch => {
   try {
     const res = await axios.get('/auth/me')
-    dispatch(getUser(res.data || initialState.defaultUser))
+    dispatch(getUser(res.data || defaultUser))
   } catch (err) {
     console.error(err)
   }
@@ -69,14 +60,12 @@ export const logout = () => async dispatch => {
 /**
  * REDUCER
  */
-const user = (state = initialState, action) => {
+const user = (state = defaultUser, action) => {
   switch (action.type) {
     case GET_USER:
       return action.user
     case REMOVE_USER:
-      return initialState
-    case SET_SCORE:
-      return {...state, score: action.score}
+      return defaultUser
     default:
       return state
   }

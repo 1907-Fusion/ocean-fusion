@@ -1,28 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-// let arr=[]
 class Fish extends React.Component {
-  // constructor() {
-  //   super()
-  //   this.state = {arr: []}
-  // }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.props.score !== prevProps.score) {
-  //     for (let i = 0; i < this.props.score; i++) {
-  //       const time = Math.round(Math.random() * 5) * 10;
-  //       arr.push(<span key={time} style={{animationDuration: `${time}s`}} />)
-  //       // this.setState({
-  //       //   arr: [
-  //       //     ...this.state.arr,
-  //       //     <span key={time} style={{animationDuration: `${time}s`}} />
-  //       //   ]
-  //       // })
-  //     }
-  //   }
-  // }
-
   render() {
     let count = 0
     const {score} = this.props
@@ -44,17 +23,7 @@ class Fish extends React.Component {
         <div className="sea">
           <div className="wave w-1" />
           <div className="wave w-2" />
-          <div className="fish">
-            {/* {arr.length > 0
-              ? arr.map(fish => {
-                  return fish
-                })
-              : ''} */}
-
-            {/* {arr.fill(<span key={time} style={{animationDuration: `${time}s`}} />, 0, this.props.score)
-              } */}
-            {fishes}
-          </div>
+          <div className="fish">{fishes}</div>
         </div>
         <div className="bottom">
           <div className="grass">
@@ -115,7 +84,7 @@ class Fish extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  score: state.user.score
+  score: state.score
 })
 
 export default connect(mapStateToProps, null)(Fish)
