@@ -24,14 +24,15 @@ class Main extends React.Component {
             🌎 Do you know how to save our oceans? We'll ask a question...
           </h3>
           <h3>
-            👋 <b>WAVE YOUR WRIST</b> over your answer!
+            👋 <b>WAVE YOUR INNER WRIST</b> over your answer!
           </h3>
           <h3>🐟 If you pick the right answer, more fish will appear!</h3>
           <h3>
-            😵 It's GAME OVER if you get <b>9 WRONG ANSWERS</b>
+            ⏲️ If you can can answer 5 questions correctly in <b>1 minute</b>,
+            you win!
           </h3>
           <h3>
-            ⏲️ If you can keep the fish alive for <b>1 minute</b>, you win!
+            😵 It's GAME OVER if you get less than <b>25 points</b>
           </h3>
 
           <h4>Can you save the world in 1 minute?</h4>
