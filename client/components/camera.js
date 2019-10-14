@@ -15,22 +15,27 @@ class Camera extends React.Component {
     super(props)
     this.state = {
       cameraSet: false,
+      // videoHeight: 600,
+      // videoWidth: 400,
       videoHeight: window.innerHeight * 0.8,
       videoWidth: window.innerWidth * 0.5,
       answer: '',
       score: 0,
       check: false,
-      wrongAnswer: 0,
       gameEnded: false
     }
   }
   async componentDidMount() {
     this.props.getQuestion()
     this.posenet = await posenet.load({
-      architecture: 'ResNet50',
-      outputStride: 32,
+      architecture: 'MobileNetV1',
+      outputStride: 16,
       inputResolution: 193,
-      quantBytes: 1
+      multiplier: 0.75
+      // architecture: 'ResNet50',
+      // outputStride: 32,
+      // inputResolution: 193,
+      // quantBytes: 1
     })
 
     await this.setupCamera()
@@ -90,7 +95,7 @@ class Camera extends React.Component {
 
     setTimeout(() => {
       this.detectPose()
-    }, 200)
+    }, 100)
   }
 
   gotPoses(poses) {
@@ -113,11 +118,7 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + points, check: true})
         ToastsStore.success('GREAT JOB! B is the correct answer.')
       } else {
-        this.setState({wrongAnswer: this.state.wrongAnswer + 1})
-        ToastsStore.error(
-          `OOPS! WRONG ANSWER! You have this many more tries to answer incorrectly before it's game over: ${9 -
-            this.state.wrongAnswer}`
-        )
+        ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
     if (
@@ -130,7 +131,6 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + points, check: true})
         ToastsStore.success('A is the correct answer')
       } else {
-        this.setState({wrongAnswer: this.state.wrongAnswer + 1})
         ToastsStore.error(
           `OOPS! WRONG ANSWER! You have this many more tries to answer incorrectly before it's game over: ${9 -
             this.state.wrongAnswer}`
@@ -147,11 +147,7 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + points, check: true})
         ToastsStore.success('GREAT JOB! D is the correct answer.')
       } else {
-        this.setState({wrongAnswer: this.state.wrongAnswer + 1})
-        ToastsStore.error(
-          `OOPS! WRONG ANSWER! You have this many more tries to answer incorrectly before it's game over: ${9 -
-            this.state.wrongAnswer}`
-        )
+        ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
     if (
@@ -164,11 +160,7 @@ class Camera extends React.Component {
         this.setState({score: this.state.score + points, check: true})
         ToastsStore.success('YOU GOT IT! C is the correct answer.')
       } else {
-        this.setState({wrongAnswer: this.state.wrongAnswer + 1})
-        ToastsStore.error(
-          `OOPS! WRONG ANSWER! You have this many more tries to answer incorrectly before it's game over: ${9 -
-            this.state.wrongAnswer}`
-        )
+        ToastsStore.success('OOPS! WRONG ANSWER!')
       }
     }
   }
@@ -180,11 +172,12 @@ class Camera extends React.Component {
     this.canvas = element
   }
 
-  renderRedirect = () => {
-    if (this.state.wrongAnswer >= 9) {
-      return <Redirect to="/gameover" />
-    }
-  }
+  // renderRedirect = () => {
+
+  //   if (this.state.wrongAnswer >= 9) {
+  //     return <Redirect to="/gameover" />
+  //   }
+  // }
 
   render() {
     const {cameraSet, gameEnded} = this.state
@@ -197,7 +190,7 @@ class Camera extends React.Component {
     }
     return (
       <div className="camera">
-        {this.renderRedirect()}
+        {/* {this.renderRedirect()} */}
         <ToastsContainer className="toasts" store={ToastsStore} />
         {cameraSet ? (
           <div id="answer-circle-container">
