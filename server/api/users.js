@@ -24,22 +24,19 @@ router.get('/', async (req, res, next) => {
   })
 })
 router.get('/:id', async (req, res, next) => {
-  requireAdminStatus(req, res, async () => {
-    try {
-      const user = await User.findByPk(req.params.id)
-      res.json(user)
-    } catch (err) {
-      next(err)
-    }
-  })
+  try {
+    const user = await User.findByPk(req.params.id)
+    res.json(user)
+  } catch (err) {
+    next(err)
+  }
 })
+
 router.put('/:id', async (req, res, next) => {
-  requireAdminStatus(req, res, async () => {
-    try {
-      const user = await User.findByPk(req.params.id)
-      const updatedUser = user.update({score: req.body.score})
-    } catch (err) {
-      next(err)
-    }
-  })
+  try {
+    const user = await User.findByPk(req.params.id)
+    const updatedUser = user.update({score: req.body.score})
+  } catch (err) {
+    next(err)
+  }
 })
