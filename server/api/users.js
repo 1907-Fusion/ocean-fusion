@@ -5,7 +5,7 @@ function requireAdminStatus(req, res, callback) {
   if (req.user && req.user.isAdmin) {
     callback()
   } else {
-    res.redirect('/home')
+    res.redirect('/user-home')
   }
 }
 router.get('/', async (req, res, next) => {

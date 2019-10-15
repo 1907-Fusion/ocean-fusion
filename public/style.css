@@ -1173,3 +1173,16 @@ form div {
   position: absolute;
   width: 180px;
 }
+.home {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to left, rgb(230, 251, 255), #90eff2);
+  margin-top: 8%;
+}
+
+h4 {
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 70px;
+  color: #ffffff;
+  text-shadow: 3px 3px 3px #474747;
+  text-align: center;
+}

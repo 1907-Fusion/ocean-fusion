@@ -2,7 +2,15 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, Main, Game, GameOver, Victory} from './components'
+import {
+  Login,
+  Signup,
+  Main,
+  Game,
+  GameOver,
+  Victory,
+  UserHome
+} from './components'
 import {me} from './store'
 
 /**
@@ -29,6 +37,7 @@ class Routes extends Component {
             <Route path="/game" component={Game} />
             <Route path="/gameover" component={GameOver} />
             <Route path="/victory" component={Victory} />
+            <Route path="/user-home" component={UserHome} />
           </Switch>
         )}
         {/* Displays our Main component as a fallback */}
