@@ -12,14 +12,18 @@ Ocean Fusion is an interactive trivia game that brings awareness about environme
 
 <img src="https://user-images.githubusercontent.com/49603409/66080072-55f93900-e533-11e9-82bc-af17c9cbf58a.jpg" style="width: 150px; height: 100px" />
 
-<img src="https://user-images.githubusercontent.com/49603409/66079181-8e981300-e531-11e9-97f4-e9346b17037a.jpg" style="width: 150px; height: 100px" />
+<img src="https://cdn.iconscout.com/icon/free/png-256/sequelize-3-1175091.png"/>
 
-<img src="https://user-images.githubusercontent.com/49603409/66079616-652bb700-e532-11e9-9440-4f0080eb206d.jpg" style="width: 150px; height: 100px" />
+<img src="https://i.pinimg.com/originals/a1/17/b5/a117b5ab90225dade5d89f4a6e681a85.png"/>
 
-<img src="https://user-images.githubusercontent.com/49603409/66079869-ee42ee00-e532-11e9-8cf2-5a554b597149.jpg" style="width: 150px; height: 100px" />
+<img src="https://codedistrict.io/wp-content/uploads/2017/12/reduxLogo.png"/>
+
+<img src="https://freeicons.io/laravel/public/uploads/icons/png/8575147831553750379-256.png"/>
+
+<img src="https://chris-noring.gallerycdn.vsassets.io/extensions/chris-noring/node-snippets/1.0.0/1544867408651/Microsoft.VisualStudio.Services.Icons.Default"/>
 
 ## How to play
 
-The player stands in the middle of the webcam screen with arms by their sides. A question will appear on the screen and the player can choose their answer, by placing their wrists on one of the letters on the screen. The player can help save the earth by answering a question correctly, which will add fish to the ocean!
+The player stands in the middle of the webcam screen with arms by their sides. A question will appear on the screen and the player can choose their answer by placing their left or right wrist on one of the letters on the screen. When the player answers a question correctly, fish will appear in the ocean!
 
-The player will win the game if they can answer 5 questions correctly within a minute. If not, they will have the option to play again!
+The player will win the game if they can answer FIVE questions correctly in ONE minute. If not, they will have the option to play again!
