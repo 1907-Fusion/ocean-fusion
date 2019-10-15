@@ -104,12 +104,12 @@ class Camera extends React.Component {
 
     setTimeout(() => {
       this.detectPose()
-    }, 100)
+    }, 500)
   }
   notifyTime = time => {
     toast.success(`You have ${time} seconds!!!`, {
       position: 'top-center',
-      autoClose: 2000,
+      autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: true,
       rtl: false,
@@ -121,7 +121,7 @@ class Camera extends React.Component {
   notifyCorrect = choice => {
     toast.info(`'GREAT JOB! ${choice} is the correct answer.'`, {
       position: 'bottom-right',
-      autoClose: 2000,
+      autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: true,
       rtl: false,
@@ -134,7 +134,7 @@ class Camera extends React.Component {
   notifyWrong = choice => {
     toast.error(`OOPS! ${choice} is the wrong Answer`, {
       position: 'bottom-right',
-      autoClose: 2000,
+      autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
