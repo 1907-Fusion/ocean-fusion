@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import {scoreReset} from '../store'
+import {scoreReset, saveScore} from '../store'
 
 class GameOver extends React.Component {
   componentDidMount() {

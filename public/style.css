@@ -1174,9 +1174,8 @@ form div {
   width: 180px;
 }
 .home {
-  font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(to left, rgb(230, 251, 255), #90eff2);
   margin-top: 8%;
+  text-align: center;
 }
 
 h4 {
@@ -1184,5 +1183,4 @@ h4 {
   font-size: 70px;
   color: #ffffff;
   text-shadow: 3px 3px 3px #474747;
-  text-align: center;
 }
