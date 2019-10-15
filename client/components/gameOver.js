@@ -2,10 +2,14 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import {scoreReset} from '../store'
+import {scoreReset, saveScore} from '../store'
 
 class GameOver extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   componentDidMount() {
+    this.props.saveScore(this.props.score, this.props.user.id)
     this.props.resetScore()
   }
 
@@ -23,9 +27,14 @@ class GameOver extends React.Component {
     )
   }
 }
+const mapStateToProps = state => ({
+  user: state.user,
+  score: state.score
+})
 
 const mapDispatchToProps = dispatch => ({
+  saveScore: (score, id) => dispatch(saveScore(score, id)),
   resetScore: () => dispatch(scoreReset())
 })
 
-export default connect(null, mapDispatchToProps)(GameOver)
+export default connect(mapStateToProps, mapDispatchToProps)(GameOver)

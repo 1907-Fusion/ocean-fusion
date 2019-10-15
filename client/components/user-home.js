@@ -1,20 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import {Button} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
  */
-export const UserHome = props => {
-  const {email} = props
-
-  return (
-    <div className="home">
-      <div id="home">
-        <h4>Welcome, {email}</h4>
+class UserHome extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    console.log(this.props.user, 'this.props.user')
+    const {email, score} = this.props.user
+    return (
+      <div className="home">
+        <div id="home">
+          <h4>Welcome, {email}</h4>
+          <h4>Can you beat your highest score of {score}?</h4>
+          <Button className="button" id="mainPageBtn">
+            <Link to="/game">Play Game</Link>
+          </Button>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 /**
@@ -22,7 +33,7 @@ export const UserHome = props => {
  */
 const mapState = state => {
   return {
-    email: state.user.email
+    user: state.user
   }
 }
 

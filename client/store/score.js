@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const GET_SCORE = 'GET_SCORE'
 
 export const setScore = score => ({
@@ -11,6 +13,19 @@ export const scoreIsSet = score => async dispatch => {
 
 export const scoreReset = () => async dispatch => {
   await dispatch(setScore(0))
+}
+
+export const saveScore = (newScore, id) => async dispatch => {
+  try {
+    const res = await axios.get(`/api/users/${id}`)
+    let oldScore = res.data.score
+    if (oldScore < newScore) {
+      axios.put(`/api/users/${id}`, {score: newScore})
+    }
+    await dispatch(setScore(newScore))
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 const defaultScore = 0
