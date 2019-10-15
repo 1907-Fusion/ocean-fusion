@@ -32,7 +32,6 @@ class Camera extends React.Component {
       inputResolution: 193,
       multiplier: 0.75
     })
-    this.setState({answerIsCorrect: false})
     await this.setupCamera()
     this.setupTimer()
   }
