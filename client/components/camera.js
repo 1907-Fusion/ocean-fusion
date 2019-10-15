@@ -20,7 +20,8 @@ class Camera extends React.Component {
       answer: '',
       score: 0,
       gameEnded: false,
-      check: false
+      answerIsCorrect: false,
+      answerIsSelected: false
     }
   }
   async componentDidMount() {
@@ -31,7 +32,6 @@ class Camera extends React.Component {
       inputResolution: 193,
       multiplier: 0.75
     })
-
     await this.setupCamera()
     this.setupTimer()
   }
@@ -54,9 +54,21 @@ class Camera extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.score !== prevState.score) {
-      this.setState({check: false})
+      this.setState({answerIsCorrect: false})
       this.props.getScore(this.state.score)
       this.props.getQuestion()
+    }
+  }
+
+  checkAnswer = (question, answer) => {
+    if (question.answer === answer) {
+      this.setState({
+        score: this.state.score + question.pointValue,
+        answerIsCorrect: true
+      })
+      this.notifyCorrect(answer)
+    } else {
+      this.notifyWrong(answer)
     }
   }
 
@@ -108,7 +120,7 @@ class Camera extends React.Component {
   }
   notifyCorrect = choice => {
     toast.info(`'GREAT JOB! ${choice} is the correct answer.'`, {
-      position: 'top-right',
+      position: 'bottom-right',
       autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -119,8 +131,8 @@ class Camera extends React.Component {
     })
   }
 
-  notifyWrong = () => {
-    toast.error(`OOPS! Wrong Answer`, {
+  notifyWrong = choice => {
+    toast.error(`OOPS! ${choice} is the wrong Answer`, {
       position: 'bottom-right',
       autoClose: 2000,
       hideProgressBar: false,
@@ -131,26 +143,20 @@ class Camera extends React.Component {
   }
 
   gotPoses(poses) {
-    let width = this.state.videoWidth
-    let height = this.state.videoHeight
-    let rightWX = poses.keypoints[10].position.x
-    let rightWY = poses.keypoints[10].position.y
-    let leftWX = poses.keypoints[9].position.x
-    let leftWY = poses.keypoints[9].position.y
-    let points = this.props.question.pointValue
-    let correctAnswer = this.props.question.answer
-    let userAnswer = this.state.answer
+    const width = this.state.videoWidth
+    const height = this.state.videoHeight
+    const rightWX = poses.keypoints[10].position.x
+    const rightWY = poses.keypoints[10].position.y
+    const leftWX = poses.keypoints[9].position.x
+    const leftWY = poses.keypoints[9].position.y
     if (
       leftWX > 0 &&
       leftWX < width * 0.3 &&
       (leftWY > 0 && leftWY < height * 0.3)
     ) {
       this.setState({answer: 'B'})
-      if (correctAnswer === userAnswer && !this.state.check) {
-        this.setState({score: this.state.score + points, check: true})
-        this.notifyCorrect('B')
-      } else {
-        this.notifyWrong()
+      if (!this.state.answerIsCorrect) {
+        this.checkAnswer(this.props.question, this.state.answer)
       }
     }
     if (
@@ -159,11 +165,8 @@ class Camera extends React.Component {
       (rightWY > 0 && rightWY < height * 0.3)
     ) {
       this.setState({answer: 'A'})
-      if (correctAnswer === userAnswer && !this.state.check) {
-        this.setState({score: this.state.score + points, check: true})
-        this.notifyCorrect('A')
-      } else {
-        this.notifyWrong()
+      if (!this.state.answerIsCorrect) {
+        this.checkAnswer(this.props.question, this.state.answer)
       }
     }
     if (
@@ -172,11 +175,8 @@ class Camera extends React.Component {
       (leftWY > height * 0.7 && leftWY < height)
     ) {
       this.setState({answer: 'D'})
-      if (correctAnswer === userAnswer && !this.state.check) {
-        this.setState({score: this.state.score + points, check: true})
-        this.notifyCorrect('D')
-      } else {
-        this.notifyWrong()
+      if (!this.state.answerIsCorrect) {
+        this.checkAnswer(this.props.question, this.state.answer)
       }
     }
     if (
@@ -185,11 +185,8 @@ class Camera extends React.Component {
       (rightWY > height * 0.7 && rightWY < height)
     ) {
       this.setState({answer: 'C'})
-      if (correctAnswer === userAnswer && !this.state.check) {
-        this.setState({score: this.state.score + points, check: true})
-        this.notifyCorrect('C')
-      } else {
-        this.notifyWrong()
+      if (!this.state.answerIsCorrect) {
+        this.checkAnswer(this.props.question, this.state.answer)
       }
     }
   }
