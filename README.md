@@ -1,5 +1,9 @@
 # Ocean Fusion
 
+## View our demo!
+
+<a href="https://ocean-fusion.herokuapp.com/">
+
 ## 🌊 Project Overview
 
 Ocean Fusion is an interactive trivia game that brings awareness about environmental sustainability. Our primary goal was to provide a fun, interactive experience to raise awareness and increase efforts to protect natural resouces. Our focus audience is young children, which is why we integrated PoseNet and animation that changes with the progression of the game.
@@ -10,8 +14,9 @@ Ocean Fusion is an interactive trivia game that brings awareness about environme
 
 ## 🐠 Tech Stack
 
-Front-end: TensorFlow, Posenet, HTML, CSS, React, Redux, OAuth
+Front-end: TensorFlow, Posenet, HTML, CSS, React, Redux, Google OAuth
 <br>Back-end: Node, Express, PostgreSQL, Sequelize
+<br>Deployment: Heroku
 
 ## 👾 How to play
 
