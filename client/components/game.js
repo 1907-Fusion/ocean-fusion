@@ -3,8 +3,14 @@ import React from 'react'
 import Camera from './camera'
 import Question from './question'
 import Ocean from './ocean'
+import {connect} from 'react-redux'
+import {scoreReset} from '../store'
 
 class Game extends React.Component {
+  componentDidMount() {
+    this.props.resetScore()
+  }
+
   render() {
     return (
       <div className="main">
@@ -19,4 +25,9 @@ class Game extends React.Component {
     )
   }
 }
-export default Game
+
+const mapDispatchToProps = dispatch => ({
+  resetScore: () => dispatch(scoreReset())
+})
+
+export default connect(null, mapDispatchToProps)(Game)

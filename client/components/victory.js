@@ -5,9 +5,6 @@ import {connect} from 'react-redux'
 import {scoreReset, saveScore} from '../store'
 
 class Victory extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   componentDidMount() {
     this.props.saveScore(this.props.score, this.props.user.id)
     this.props.resetScore()
