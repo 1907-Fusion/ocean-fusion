@@ -1,8 +1,6 @@
 # Ocean Fusion
 
-## View our demo!
-
-<a href="https://ocean-fusion.herokuapp.com/">
+<a href="https://ocean-fusion.herokuapp.com/">Click here to view our demo!</a>
 
 ## 🌊 Project Overview
 
