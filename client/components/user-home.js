@@ -12,7 +12,6 @@ class UserHome extends React.Component {
     super(props)
   }
   render() {
-    console.log(this.props.user, 'this.props.user')
     const {email, score} = this.props.user
     return (
       <div className="home">
