@@ -104,7 +104,7 @@ class Camera extends React.Component {
 
     setTimeout(() => {
       this.detectPose()
-    }, 500)
+    }, 1000)
   }
   notifyTime = time => {
     toast.success(`You have ${time} seconds!!!`, {
