@@ -260,6 +260,7 @@ form div {
 .toast-container {
   text-shadow: 3px 4px 2px #474747;
   font-size: 25px;
+  z-index: 200;
 }
 /* ANSWER CHOICE CIRCLES ON CAMERA */
 
@@ -273,7 +274,7 @@ form div {
   text-align: center;
   width: 180px;
   vertical-align: middle;
-  z-index: 2147483647;
+  z-index: 100;
 }
 .answer-circle > h1 {
   font-size: 90px;
