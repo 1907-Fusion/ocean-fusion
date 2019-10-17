@@ -8,9 +8,6 @@ import {Link} from 'react-router-dom'
  * COMPONENT
  */
 class UserHome extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     const {email, score} = this.props.user
     return (
